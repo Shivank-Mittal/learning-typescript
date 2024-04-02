@@ -1,4 +1,4 @@
-export class Calculator {
+export default class Calculator {
     static version = '1'
     
     constructor () {}
