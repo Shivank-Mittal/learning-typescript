@@ -27,6 +27,11 @@ const config = {
         new HtmlWebpackPlugin({
             template: 'index.html',
         }),
+        new HtmlWebpackPlugin({
+            filename: 'change-background.html',
+            template: './src/Projects/asyncProjects/change_background_color/change-background.html',
+            
+        }),
         new MiniCssExtractPlugin(),
         new CopyWebpackPlugin({
             patterns: [{
