@@ -1,35 +1,15 @@
-export default class Executor {
-    public execute(functionToExecute: Function | Function[]):void {
-        if (typeof functionToExecute === 'function') {
-            this.executeFunction(functionToExecute);
-            return;
-        }
-
-        const fnCollection = functionToExecute as Array<Function>
-
-        fnCollection.forEach(fn => fn())
-    }
-
-    public async executeAsync(functionToExecute: Function | Function[]) {
-        if (typeof functionToExecute === 'function') {
-            await functionToExecute;
-            return;
-        }
-        const initPromise = Promise.resolve();
-        
-
-        const fnCollection = functionToExecute as Array<Function>
-        let fn; 
-        
-        fnCollection.forEach(fn => initPromise.then(() => { 
-            return fn()
-            })
-        )
-    }
-
-
-    private executeFunction(functionToCalled: Function) {
-        functionToCalled();
-    }
+export async function execute (functionToCalled: Function, withClick: 'OnClick' | undefined = undefined ) {
+    let startTime = performance.now()
+    const result = await functionToCalled();
+    let endTime = performance.now()
+    const timeTaken = endTime - startTime
     
+    console.log(`Call to doSomething took ${timeTaken} milliseconds`)
+    const resultElement = document.getElementById('result');
+    resultElement.innerHTML = result
+    document.getElementById('time_taken').innerText = `${timeTaken.toPrecision(1)} milliseconds`;
+
+    if(withClick === 'OnClick') {
+        document.getElementById('execute').addEventListener('click', async () => execute(functionToCalled));
+    }
 }

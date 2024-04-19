@@ -5,7 +5,7 @@ async function testPromise(): Promise<void>{
     })
 }
 
-async function promiseBasic() {
+async function basicPromise() {
     const p = new Promise<string>((res) => {
         setTimeout(() => res('Resolved'), 5000)
     })
@@ -13,9 +13,25 @@ async function promiseBasic() {
     p.then((result) => console.log(result))
 }
 
+const chainablePromise = new Promise<number>((res, rej) => {
+    setTimeout(() => console.log('Timeout finished'), 1000);
+    res(2);
+}).then((value) => console.log( 'value recived:' + value));
+
+const getUsers = () => fetch('https://jsonplaceholder.typicode.com/users')
+    .then( users => users.json())
+    .then( users => console.log(users))
+    .catch(e => console.log(e))
+
+const asyncFunction =  async function () {
+    console.log('result')
+}
 
 
 export default {
-    testPromise: testPromise,
-    basicPromise : promiseBasic
+    testPromise,
+    basicPromise,
+    chainablePromise,
+    getUsers,
+    asyncFunction
 }

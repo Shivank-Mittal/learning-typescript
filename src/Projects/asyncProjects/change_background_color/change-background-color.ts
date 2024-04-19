@@ -4,13 +4,13 @@ import { COLORS } from './colors'
 export default class ChangeColor {
     body = document.getElementsByTagName('body')[0];
     camelion: HTMLElement;
-    colorChanger: NodeJS.Timeout;
+    repeater: NodeJS.Timeout;
+    isChangingColor: boolean = false
 
     constructor(){
         this.getNewHTML().then(_ => {
             this.camelion =  document.getElementById('camelion-body');
-            document.getElementById('show').addEventListener('click', this.changeColor.bind(this), false)
-            document.getElementById('stop').addEventListener('click', this.hideColor.bind(this), false)
+            document.getElementById('show').addEventListener('click', this.showColors.bind(this), false)
         })
     }
 
@@ -21,20 +21,22 @@ export default class ChangeColor {
         this.body.appendChild(privateHtml.documentElement)
     }
 
-    changeColor(){ 
-        this.colorChanger = setInterval(() => this.updateColor(this.camelion, this.color), 5000)
-    }
-
-    hideColor() {
-        if (!clearInterval) return;
-
-        clearInterval(this.colorChanger)
-        this.updateColor(this.camelion, 'white');
+    showColors(){ 
+        if(this.isChangingColor && this.repeater) {
+            this.isChangingColor = false;
+            document.getElementById('show').innerText = 'Show Color'
+            clearInterval(this.repeater)
+            this.repeater = null;
+            this.updateColor('white');
+            return
+        }
+        this.isChangingColor = true;
+        this.repeater = setInterval(() => this.updateColor(this.color), 5000)
+        document.getElementById('show').innerText = 'Hide Color'
     }
     
-
-    updateColor(element:HTMLElement, color: COLORS | 'white' = 'white') {
-        element.style.backgroundColor = color;
+    updateColor(color: COLORS | 'white' = 'white') {
+        this.camelion.style.backgroundColor = color;
     }
 
     get color(): COLORS{ 
