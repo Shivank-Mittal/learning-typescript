@@ -13,7 +13,7 @@ async function basicPromise() {
     p.then((result) => console.log(result))
 }
 
-const chainablePromise = new Promise<number>((res, rej) => {
+const chainablePromise = () => new Promise<number>((res, rej) => {
     setTimeout(() => console.log('Timeout finished'), 1000);
     res(2);
 }).then((value) => console.log( 'value recived:' + value));
@@ -27,11 +27,33 @@ const asyncFunction =  async function () {
     console.log('result')
 }
 
+function checkTaskQueue() {
+    console.log('Starting...  In execution context of check function');
 
-export default {
+    function firstFunction() {
+        console.log('In First Function');
+        secondFunction()
+    }
+
+    function secondFunction() {
+        console.log('In second Function');
+
+        setTimeout(() => { console.log('In  timeout of second Function');}, 0)
+    }
+
+    firstFunction()
+
+    console.log('Finishing check function');
+}
+
+
+
+
+export {
     testPromise,
     basicPromise,
     chainablePromise,
     getUsers,
-    asyncFunction
+    asyncFunction,
+    checkTaskQueue
 }

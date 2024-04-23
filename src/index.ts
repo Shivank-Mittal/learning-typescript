@@ -1,9 +1,7 @@
 import {execute} from './executor'
 import {provider} from './provider'
 
-function run() { 
-    provider.lengthOfLastWord('abc')
-} 
+provider.testEvent()
 
-execute(run, "OnClick")
+execute(provider.closure, "OnClick")
 
