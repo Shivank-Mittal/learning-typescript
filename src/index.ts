@@ -1,7 +1,7 @@
 import {execute} from './executor'
 import {provider} from './provider'
 
-provider.testEvent()
+// provider.testEvent()
 
-execute(provider.closure, "OnClick")
-
+const a = provider.testGeneratorFunction()
+execute(() => console.log(a.next()), "OnClick")

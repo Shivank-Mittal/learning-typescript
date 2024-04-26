@@ -16,7 +16,7 @@ async function basicPromise() {
 const chainablePromise = () => new Promise<number>((res, rej) => {
     setTimeout(() => console.log('Timeout finished'), 1000);
     res(2);
-}).then((value) => console.log( 'value recived:' + value));
+}).then((value) => console.log( 'value received:' + value));
 
 const getUsers = () => fetch('https://jsonplaceholder.typicode.com/users')
     .then( users => users.json())
@@ -45,8 +45,6 @@ function checkTaskQueue() {
 
     console.log('Finishing check function');
 }
-
-
 
 
 export {

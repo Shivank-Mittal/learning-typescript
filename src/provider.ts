@@ -8,6 +8,7 @@ import {nonWritableObject} from './Topics/objects';
 import {testEvent} from './Topics/events';
 import {executeMemoiseFunction} from './Topics/memoization';
 import  closure from './Topics/closures';
+import {testGeneratorFunction} from './Topics/generator';
 
 
 export const provider = {
@@ -20,5 +21,6 @@ export const provider = {
     nonWritableObject,
     testEvent,
     executeMemoiseFunction,
-    closure
+    closure,
+    testGeneratorFunction
 }
