@@ -6,7 +6,7 @@ import ChangeColor  from './Projects/asyncProjects/change_background_color/chang
 import {addCircle} from './Projects/circle-generator';
 import {nonWritableObject} from './Topics/objects';
 import {testEvent} from './Topics/events';
-import {executeMemoiseFunction} from './Topics/memoization';
+import {executeMemoiseFunction, executeGeneratorMemoiseFn} from './Topics/memoization';
 import  closure from './Topics/closures';
 import {testGeneratorFunction} from './Topics/generator';
 
@@ -22,5 +22,6 @@ export const provider = {
     testEvent,
     executeMemoiseFunction,
     closure,
-    testGeneratorFunction
+    testGeneratorFunction,
+    executeGeneratorMemoiseFn
 }

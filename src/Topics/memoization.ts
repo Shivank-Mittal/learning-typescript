@@ -50,3 +50,21 @@ export function executeMemoiseFunction() {
         }
     )
 }
+
+export function* executeGeneratorMemoiseFn() {
+
+    function execute(prams: calculationValues) {
+        const startTime = performance.now()
+        memoizationSum(prams)
+        const endTime = performance.now()
+        return endTime - startTime
+    }
+
+    yield execute(values[0])
+    yield execute(values[1])
+    yield execute(values[2])
+    yield execute(values[3])
+    yield execute(values[4])
+    yield execute(values[5])
+    return execute(values[6])
+}
