@@ -1,8 +1,9 @@
 {
-  "name": "my-webpack-project",
+  "name": "learn-java-script",
   "version": "1.0.0",
   "description": "My webpack project",
   "private": true,
+  "main": "src/provider.ts",
   "scripts": {
     "dev": "vite",
     "test": "echo \"Error: no test specified\" && exit 1",

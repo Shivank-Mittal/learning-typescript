@@ -1,4 +1,6 @@
 
+import {memoizeFn} from  './memoization2'
+
 type calculationValues = {
     first: number,
     second: number
@@ -60,11 +62,12 @@ export function* executeGeneratorMemoiseFn() {
         return endTime - startTime
     }
 
-    yield execute(values[0])
-    yield execute(values[1])
-    yield execute(values[2])
-    yield execute(values[3])
-    yield execute(values[4])
-    yield execute(values[5])
-    return execute(values[6])
+    for (let index = 0; index < values.length; index++) {
+       yield execute(values[0])
+    }
+}
+
+
+export {
+    memoizeFn
 }
