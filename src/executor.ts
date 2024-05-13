@@ -23,13 +23,13 @@ async function functionRunner(functionToCalled: Function) {
     }
 }
 
-function updateView(timeTakenToComplete: number, result: unknown) {
+function updateView(timeTakenToComplete: number, result: unknown, functionName = '') {
     const resultElements = document.getElementsByClassName('result');
     const resultElement = resultElements[resultElements.length -1]
 
     const newElement = document.createElement("h3");
     newElement.className = "result";
-    newElement.innerHTML =  'Result of executed function' + ' ' + result
+    newElement.innerHTML =  'Result of executed function '+ functionName + ' is' + ' ' + result
     const anchorElement = resultElement || document.getElementById('execute')
 
     anchorElement.after(newElement)
@@ -37,13 +37,13 @@ function updateView(timeTakenToComplete: number, result: unknown) {
     document.getElementById('time_taken').innerText = `${timeTakenToComplete.toPrecision(1)} milliseconds`;
 }
 
-
-export function executeWithGenerator(callback: Function, count = 0,  parameters: unknown[] = []){
-    let maxCount = count || parameters.length
+// 
+export function executeWithGenerator(callback: Function, count = 0,  cases: unknown[] = []){
+    let maxCount = count || cases.length
 
     function* ex() {
         for (let index = 0; index < maxCount; index++) {
-            yield updateView(0 ,callback(parameters[index]))
+            yield updateView(0 ,callback(cases[index]), callback.name)
         }
     }
 

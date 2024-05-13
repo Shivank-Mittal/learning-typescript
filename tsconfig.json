@@ -5,8 +5,9 @@
     "module": "esnext",
     "target": "es2022",
     "allowJs": true,
-    "declaration": true
+    "declaration": true,
   },
+  
   
   "files": ["src/index.ts"]
 }
