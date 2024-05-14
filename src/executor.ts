@@ -43,7 +43,11 @@ export function executeWithGenerator(callback: Function, count = 0,  cases: unkn
 
     function* ex() {
         for (let index = 0; index < maxCount; index++) {
-            yield updateView(0 ,callback(cases[index]), callback.name)
+            let startTime = performance.now()
+                const result = callback(cases[index]);
+                let endTime = performance.now()
+                const timeTaken = endTime - startTime
+            yield updateView(timeTaken ,result, callback.name)
         }
     }
 

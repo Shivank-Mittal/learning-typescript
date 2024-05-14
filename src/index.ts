@@ -1,8 +1,8 @@
 import provider from './provider'
 
-provider.dsa.problems.getMaxProfit()
+// provider.dsa.problems.secondLargestSome()
 
-// provider.algo.binarySearch()
+provider.dsa.algo.mergeSort()
 // execute(() => provider.algo.binarySearch(arrayToProvide, value), 'OnClick')
 // execute(() => provider.algo.binarySearch(arrayToProvide, 500000), 'OnClick')
 
