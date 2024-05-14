@@ -1,4 +1,4 @@
-export function isPalindrome(value: number) {
+function isPalindromeSelf(value: number) {
     const valueInArray = [...value.toString()]
     const palindromeLength =  valueInArray.length - 1;
     const loopLength = Math.floor(valueInArray.length/2);
@@ -13,6 +13,15 @@ export function isPalindrome(value: number) {
         
     }
     return true
+}
+
+
+function isPalindromeLearned(value: number) {
+    return value < 0 ? false: value === +value.toString().split("").reverse().join("")
+}
+
+export {
+    isPalindromeLearned as isPalindrome
 }
 
 
