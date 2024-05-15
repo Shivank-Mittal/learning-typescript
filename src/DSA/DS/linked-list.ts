@@ -2,7 +2,7 @@
 import Node from './node';
 
 
-export default class LinkedList<T> implements Iterable<T> {
+export default class LinkedList<T> implements Iterable<Node<T>> {
 
     private head: Node<T> | null;
 
@@ -102,8 +102,23 @@ export default class LinkedList<T> implements Iterable<T> {
         }
     }
 
+    reverse() {
+        if(!this.size) return;
+
+        let newList;
+        let currentNode = this.head;
+        for (let index = 0; index < this.size; index++) {
+            let tempList = newList;
+            newList = currentNode.duplicate();
+            newList.next = tempList
+            currentNode = currentNode.next
+        }
+        this.head = newList;
+        return this;
+    }
+
     get size() {
-        let counter = 0
+        let counter = 1
         let currentNode = this.head;
 
         while(currentNode.next) {
@@ -111,6 +126,19 @@ export default class LinkedList<T> implements Iterable<T> {
             currentNode = currentNode.next
         }
         return counter
+    }
+
+    toString(delimiter: string = ''): string {
+        let customString = '';
+        this.forEach((value: T) => {
+            customString = customString + value + delimiter
+        })
+        if(delimiter) {
+            let tempString = customString.split("")
+            tempString.pop()
+            customString = tempString.join()
+        }
+        return customString
     }
 
 
@@ -122,11 +150,11 @@ export default class LinkedList<T> implements Iterable<T> {
 
     // making the linked list iterable, now we can use for..of loop to iterate throw the values.
 
-    *[Symbol.iterator](): Iterator<T> {
+    *[Symbol.iterator](): Iterator<Node<T>> {
         let currentValue: Node<T> = this.head
         while(true) {
             if(!currentValue) return
-            yield currentValue.data;
+            yield currentValue;
             currentValue = currentValue.next
         }
     } 

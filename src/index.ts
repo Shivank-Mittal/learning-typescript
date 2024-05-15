@@ -1,9 +1,8 @@
 import provider from './provider'
 
-// provider.dsa.problems.secondLargestSome()
+provider.dsa.problems.isLinkedListPalindrome()
 
-provider.dsa.ds.linkedListDemo();
-
+// provider.dsa.ds.linkedListDemo();
 // for (const node of ls) {
 //     console.log(node)
 // }

@@ -1,3 +1,5 @@
+import LinkedList from "../DS/linked-list";
+
 function isPalindromeSelf(value: number) {
     const valueInArray = [...value.toString()]
     const palindromeLength =  valueInArray.length - 1;
@@ -15,13 +17,19 @@ function isPalindromeSelf(value: number) {
     return true
 }
 
-
 function isPalindromeLearned(value: number) {
     return value < 0 ? false: value === +value.toString().split("").reverse().join("")
 }
 
+function isLinkedListPalindrome(linkedList: LinkedList<number>) {
+    const linkedListString = linkedList.toString();
+    const reversedLinkedList = linkedList.reverse().toString()
+    return linkedListString === reversedLinkedList
+}
+
 export {
-    isPalindromeLearned as isPalindrome
+    isPalindromeLearned as isPalindrome,
+    isLinkedListPalindrome
 }
 
 

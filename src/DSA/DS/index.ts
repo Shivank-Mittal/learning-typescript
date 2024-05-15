@@ -16,6 +16,13 @@ const linkedListDemo = () => executeWithGenerator(() => {
             console.log(value)
         })
 
+        ls.reverse();
+        ls.forEach((value:number) => {
+            console.log(value)
+        })
+
+        ls.toString()
+
         // console.log(ls.removeFromHead())
         // console.log(ls.removeFromTail())
     }, 5)
