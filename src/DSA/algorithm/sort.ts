@@ -22,7 +22,6 @@ function bubbleSortSelf(unsortedArray: number[]) {
 
 
 // Merge sort
-
 function mergeSortSelf(unsortedArray: number[]) {
 
     const mergeSort = (unsortedArray: number[]) => {
