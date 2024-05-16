@@ -1,4 +1,3 @@
-
 export async function execute(functionToCalled: Function, withClick: 'OnClick' | undefined = undefined) {
     console.log(`Executing ${functionToCalled.name}`)
     if(withClick === 'OnClick') {
@@ -34,7 +33,7 @@ function updateView(timeTakenToComplete: number, result: unknown, functionName =
 
     anchorElement.after(newElement)
 
-    document.getElementById('time_taken').innerText = `${timeTakenToComplete.toPrecision(1)} milliseconds`;
+    document.getElementById('time_taken').innerText = `${timeTakenToComplete?.toPrecision(1)} milliseconds`;
 }
 
 // 
@@ -43,10 +42,17 @@ export function executeWithGenerator(callback: Function, count = 0,  cases: unkn
 
     function* ex() {
         for (let index = 0; index < maxCount; index++) {
-            let startTime = performance.now()
-                const result = callback(cases[index]);
+            let result;
+            let timeTaken;
+            try {
+                let startTime = performance.now()
+                result = callback(cases[index]);
                 let endTime = performance.now()
-                const timeTaken = endTime - startTime
+                timeTaken = endTime - startTime
+            }catch(e) {
+                debugger
+                console.log(e)
+            }
             yield updateView(timeTaken ,result, callback.name)
         }
     }

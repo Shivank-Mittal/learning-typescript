@@ -1,8 +1,8 @@
 import provider from './provider'
 
-provider.dsa.problems.isLinkedListPalindrome()
+// provider.dsa.problems.concatSortedLinkedList()
 
-// provider.dsa.ds.linkedListDemo();
+provider.dsa.ds.binarySearchTree();
 // for (const node of ls) {
 //     console.log(node)
 // }
