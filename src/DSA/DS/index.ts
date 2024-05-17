@@ -45,6 +45,7 @@ const binarySearchTree = () => executeWithGenerator(() => {
     console.log('level Order')
     bst.levelOrder()
 
+    bst.isTreeBST(bst.root);
 
     console.log(bst.contains(3))
     console.log(bst.contains(55))
