@@ -91,6 +91,18 @@ export default class BinarySearchTree<T> {
         } 
     }
 
+    isTreeBST(node: TreeNode<T>): boolean {
+        if(!node) return
+
+        if(node.left && node.left.value > node.value) return false;
+        if(node.right && node.right.value < node.value ) return false;
+
+        const isLeftTree = this.isTreeBST(node.left)
+        const isRightTree = this.isTreeBST(node.right)
+
+        return isLeftTree && isRightTree
+    }
+
     get isEmpty(): boolean {
         return !this._rootNode
     }
