@@ -10,13 +10,17 @@ const isProduction = process.env.NODE_ENV == 'production';
 
 const stylesHandler = MiniCssExtractPlugin.loader;
 
+//To add entry points
 
+// projects: path.resolve(__dirname, './src/Projects'),
+// timer: path.resolve(__dirname, './src/Projects/coundownTimer'),
 
 const config = {
     entry: {
-        path: path.resolve(__dirname, './src/index.ts')
+        app: path.resolve(__dirname, './src/index.ts'),
     },
     output: {
+        filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
     },
     devServer: {
@@ -30,7 +34,14 @@ const config = {
         new HtmlWebpackPlugin({
             filename: 'change-background.html',
             template: './src/Projects/asyncProjects/change_background_color/change-background.html',
-            
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'projects.html',
+            template: './src/Projects/index.html',
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'timer.html',
+            template: './src/Projects/coundownTimer/index.html',
         }),
         new MiniCssExtractPlugin(),
         new CopyWebpackPlugin({
@@ -62,16 +73,16 @@ const config = {
             {
                 test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
                 type: 'asset',
-            },
-
-            // Add your rules for custom modules here
-            // Learn more about loaders from https://webpack.js.org/loaders/
+            }
         ],
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
     },
     devtool:'source-map',
+    optimization: {
+        runtimeChunk: 'single'
+    }
 };
 
 module.exports = () => {

@@ -1,0 +1,36 @@
+[
+    {
+        "id": 123,
+        "first-name": "Shivank",
+        "last-name": "Mittal",
+        "address": "Vitry sur seine",
+        "phone-number": 9999999999,
+        "DOB": "23/Jan/1993",
+        "email": "shiv@gmail.com"
+    },
+    {
+        "id": 124,
+        "first-name": "Abc",
+        "last-name": "Mittal",
+        "address": "Vitry sur seine",
+        "phone-number": 88888888,
+        "DOB": "23/Jan/1993",
+        "email": "abc@gmail.com"
+    },{
+        "id": 125,
+        "first-name": "XYZ",
+        "last-name": "Mittal",
+        "address": "Vitry sur seine",
+        "phone-number": 9999999999,
+        "DOB": "23/Jan/1993",
+        "email": "xyz@gmail.com"
+    },{
+        "id": 126,
+        "first-name": "Aze",
+        "last-name": "Mittal",
+        "address": "Vitry sur seine",
+        "phone-number": 9999999999,
+        "DOB": "23/Jan/1993",
+        "email": "aze@gmail.com"
+    }
+]

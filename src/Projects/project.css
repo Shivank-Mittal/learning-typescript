@@ -1,0 +1,15 @@
+:host{
+    margin: 5px;
+}
+ 
+#card-section {
+    margin: 5px;
+    height: 100px;
+    border: 0.5px solid grey ;
+    display: flex;
+}
+
+.user-list {
+    width: 40;
+}
+

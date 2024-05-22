@@ -1,25 +1,11 @@
-import * as promiseTypes from './Topics/promises';
-import Calculator from './Topics/calculator';
-import calculateTicketTime from './Topics/ticket-time-calculate';
-import { lengthOfLastWord } from './Topics/string';
-import ChangeColor from './Projects/asyncProjects/change_background_color/change-background-color';
-import { addCircle } from './Projects/circle-generator';
-import { nonWritableObject } from './Topics/objects';
-import { testEvent } from './Topics/events';
-import { executeMemoiseFunction, executeGeneratorMemoiseFn } from './Topics/memoization';
-import closure from './Topics/closures';
-import { testGeneratorFunction } from './Topics/generator';
-export declare const provider: {
-    promise: typeof promiseTypes;
-    Calculator: typeof Calculator;
-    calculateTicketTime: typeof calculateTicketTime;
-    lengthOfLastWord: typeof lengthOfLastWord;
-    ChangeColor: typeof ChangeColor;
-    addCircle: typeof addCircle;
-    nonWritableObject: typeof nonWritableObject;
-    testEvent: typeof testEvent;
-    executeMemoiseFunction: typeof executeMemoiseFunction;
-    closure: typeof closure;
-    testGeneratorFunction: typeof testGeneratorFunction;
-    executeGeneratorMemoiseFn: typeof executeGeneratorMemoiseFn;
+import * as topics from './Topics/index';
+import * as projects from './Projects/index';
+import * as mis from './mis/index';
+import * as dsa from './DSA/index';
+declare const _default: {
+    topics: typeof topics;
+    projects: typeof projects;
+    mis: typeof mis;
+    dsa: typeof dsa;
 };
+export default _default;

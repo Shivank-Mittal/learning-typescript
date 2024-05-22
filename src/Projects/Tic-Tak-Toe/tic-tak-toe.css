@@ -1,0 +1,35 @@
+#Board {
+    background-color: aliceblue;
+    width: 400px;
+    display: grid;
+    grid-template-columns: auto auto auto
+}
+
+#grid {
+    height: 50px;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.square {
+    width: 30px;
+    height: 30px;
+    background-color: black;
+}
+
+.p1 {
+    background-color: blue;
+}
+
+.p2 {
+    background-color: red;
+}
