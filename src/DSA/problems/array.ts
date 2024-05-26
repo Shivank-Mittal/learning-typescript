@@ -43,10 +43,21 @@ function rotateArrayRaw(arrayToRotate:number[], stepsToRotate: number):number[] 
 
 // Rotate the array for n steps raw code more Optimal
 function rotateArrayOptimal(arrayToRotate:number[], stepsToRotate: number):number[] {
-    const arrayToReverse = arrayToRotate.slice((arrayToRotate.length - stepsToRotate ))
-    arrayToRotate.length = arrayToRotate.length - stepsToRotate 
-    return [...arrayToReverse, ...arrayToRotate ]
-    
+    const arrayLength =  arrayToRotate.length
+    if(stepsToRotate === arrayLength) return;
+    stepsToRotate = stepsToRotate % arrayLength;
+    const itemsToSwitch = arrayToRotate.splice(arrayLength - stepsToRotate);
+    arrayToRotate.unshift(...itemsToSwitch)
+    return arrayToRotate;
+}
+
+//Array intersection
+function intersection(nums1: number[], nums2: number[]) {
+    const intersection: number[] = []
+    for (let index = 0; index < nums1.length; index++) {
+        if(!nums2.includes(nums1[index])) continue;
+        
+    }
 }
 
 
