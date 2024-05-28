@@ -1,11 +1,15 @@
 import {isPalindrome as palindromeChecker, isLinkedListPalindrome as isLinkedListPalindromeChecker } from './palidrome'
 import {getFibonacciNumber as getFibonacciNumberFinder} from './fabonachi'
-import {isAnagram as isAnagramChecker} from './anagram'
+import {isAnagram as isAnagramChecker, groupAnagram as groupAnagramChecker} from './anagram'
 import {getSumOfNumbers as getSumOfNumbersFinder} from './get_sum_of_numbers'
 import {getMaxProfit as getMaxProfitFinder} from './max_profit'
 import {secondLargestSome as secondLargestSomeFinder, rotateArrayOptimal as rotateArrayChecker} from './array'
 import { isLinkedListIsCyclic as isLinkedListIsCyclicChecker } from './cyclicLinkedList';
 import { concatSortedLinkedList as concatSortedLinkedListTester } from './mergeTwoLinkedList';
+import { productOfSumExceptSelf as productOfSumExceptSelfGetter } from './product-of-sum';
+import { findPathIn2DArray as findPathIn2DArrayFinder } from './gridTraveler';
+import { sumOfNumbersInList as sumOfNumbersInListFinder } from './sum_of_numbers';
+import * as arrays from './array/array_index'
 
 import getLinkedList from '../../utilities/linked_list_generator'
 import LinkedList from '../DS/linked-list'
@@ -43,6 +47,21 @@ const concatSortedLinkedList = () =>
     executeWithGenerator(
         (ls: [LinkedList<number>, LinkedList<number>]) => concatSortedLinkedListTester(ls[0].head, ls[1].head), 0, linkedListSorted)
 
+const groupAnagram = () => {
+    executeWithGenerator((ls: string[]) => groupAnagramChecker(ls), 0, anagramGroupCases)
+}
+
+const productOfSumExceptSelf = () => {
+    executeWithGenerator((nums :number[]) => productOfSumExceptSelfGetter(nums),0 , [[1,2,3,4], [-1,1,0,-3,3]] )
+}
+
+const findPathIn2DArray = () => {
+    executeWithGenerator((nums :number[]) => findPathIn2DArrayFinder(nums[0], nums[1]), 0, findPathIn2DArrayCases )
+}
+
+const sumOfNumbersInList = () => {
+    executeWithGenerator((nums :number[]) => JSON.stringify(sumOfNumbersInListFinder([2, 3, 5, 7], 7)), 5 )
+}
 
 const palindromeCases = [121, 134431, 1345431, 11, 123324]
 const linkedListPalindromeCases = () => {
@@ -101,6 +120,18 @@ const linkedListSorted = [
     [getLinkedList([]), getLinkedList([0])],
 ]
 
+const anagramGroupCases  = [
+    ["eat","tea","tan","ate","nat","bat"],
+    [""],
+    ["a"]
+]
+
+const findPathIn2DArrayCases = [
+    [2, 3],
+    [5, 6],
+    [3, 2],
+    [18, 18],
+]
 
 
 export {
@@ -113,5 +144,10 @@ export {
     rotateArray,
     isLinkedListPalindrome,
     isCyclicLinkedList,
-    concatSortedLinkedList
+    concatSortedLinkedList,
+    groupAnagram,
+    productOfSumExceptSelf,
+    findPathIn2DArray,
+    sumOfNumbersInList,
+    arrays
 }

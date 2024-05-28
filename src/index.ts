@@ -1,6 +1,6 @@
 import provider from './provider'
 
-provider.projects.twoWayBinding()
+provider.dsa.problems.arrays.removeElement()
 
 // provider.dsa.problems.concatSortedLinkedList()
 
@@ -13,6 +13,3 @@ provider.projects.twoWayBinding()
 // provider.dsa.algo.mergeSort()
 // execute(() => provider.algo.binarySearch(arrayToProvide, value), 'OnClick')
 // execute(() => provider.algo.binarySearch(arrayToProvide, 500000), 'OnClick')
-
-
-

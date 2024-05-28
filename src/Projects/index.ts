@@ -6,9 +6,9 @@ import play from  './Tic-Tak-Toe/tic-tak-toe'
 
 import { execute, executeWithGenerator } from '../executor';
 
-execute(()=> {
-    return computeAmount().lack(15).crore(15).crore(2).lack(20).thousand(45).crore(7).value()
-}, 'OnClick')
+// execute(()=> {
+//     return computeAmount().lack(15).crore(15).crore(2).lack(20).thousand(45).crore(7).value()
+// }, 'OnClick')
 
 const checker =  twoWayBindingChecker()
 const twoWayBinding = () => executeWithGenerator(checker.check, 0, twoWayBindingCases)

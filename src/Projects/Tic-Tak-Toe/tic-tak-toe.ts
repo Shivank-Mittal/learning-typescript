@@ -16,6 +16,8 @@ const winningConditions: {[key: string]: number[]} = {
     lineTwoD:[3,5,7],
 }
 
+const gamePlayerPositions: string[][] = []
+
 const board = document.getElementById('Board') as HTMLDivElement
 const square = () => {
     const c = document.createElement('div')
@@ -37,7 +39,6 @@ const getPlayerSymbol = {
 let currentPlayer: PLAYER = PLAYER.PLAYER1;
 
 const eventToAdd = addValue.bind(this)
-
 board.addEventListener('click', eventToAdd)
 
 function addValue(event: Event){

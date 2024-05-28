@@ -9,6 +9,9 @@ import {
      mergeSort as mergeSorting
     } from './sort';
 
+import {pascalTree as pascalTreeGenerator} from './pascal-tree'
+import floodFillFinder from './flood-fill'
+
 import { executeWithGenerator} from '../../executor'    
 import { getArray, getRandomArray } from '../../utilities/array_generator'    
 
@@ -28,7 +31,18 @@ const bubbleSort = () =>
 const mergeSort = () => 
     executeWithGenerator((algoInput: number[]) => mergeSorting(algoInput), 0, sortCases);
 
+const pascalTree = () => {
+    executeWithGenerator((numRows: number) => pascalTreeGenerator(numRows), 0, [[1,2,3,4]]);
+}
 
+const floodFill = () => {
+    executeWithGenerator((numRows: number) => floodFillFinder(), 0, [[1,2,3,4]]);
+}
+
+
+const pascalTreeCase = [
+    5, 0, 3, 10
+]
 const prams = [
     [[-5, 2, 4, 6, 10], 10],
     [[-5, 2, 4, 6, 10], 6],
@@ -40,8 +54,6 @@ const prams = [
     [getArray(10000, -1000), 5000],
     [getArray(0), 500000],
 ]
-
-
 const sortCases = [
     [3, 4, 9, 7, 5],
     [3, 5, 13, 2, 20],
@@ -50,11 +62,12 @@ const sortCases = [
     []
 ]
 
-
 export {
     binarySearch,
     binarySearchSortAgnostic,
     trinarySearch,
     bubbleSort,
-    mergeSort
+    mergeSort,
+    pascalTree,
+    floodFill
 }

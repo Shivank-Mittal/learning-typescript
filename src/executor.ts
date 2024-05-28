@@ -11,7 +11,6 @@ async function functionRunner(functionToCalled: Function) {
     try {
         let startTime = performance.now()
         const result = await functionToCalled();
-        debugger
         let endTime = performance.now()
         const timeTaken = endTime - startTime
         
