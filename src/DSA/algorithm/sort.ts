@@ -48,6 +48,11 @@ function mergeSortSelf(unsortedArray: number[]) {
 }
 
 
+function quickSort(array: number[]) {
+    
+}
+
+
 
 export {
     bubbleSortSelf as bubbleSort,

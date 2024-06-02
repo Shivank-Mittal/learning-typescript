@@ -8,8 +8,9 @@ import { isLinkedListIsCyclic as isLinkedListIsCyclicChecker } from './cyclicLin
 import { concatSortedLinkedList as concatSortedLinkedListTester } from './mergeTwoLinkedList';
 import { productOfSumExceptSelf as productOfSumExceptSelfGetter } from './product-of-sum';
 import { findPathIn2DArray as findPathIn2DArrayFinder } from './gridTraveler';
-import { sumOfNumbersInList as sumOfNumbersInListFinder } from './sum_of_numbers';
+import { sumOfNumbersInList as sumOfNumbersInListFinder, sumOfTwoNumbers as sumOfTwoNumbersFinder } from './sum_of_numbers';
 import * as arrays from './array/array_index'
+import * as string from './string/string-index'
 
 import getLinkedList from '../../utilities/linked_list_generator'
 import LinkedList from '../DS/linked-list'
@@ -63,6 +64,10 @@ const sumOfNumbersInList = () => {
     executeWithGenerator((nums :number[]) => JSON.stringify(sumOfNumbersInListFinder([2, 3, 5, 7], 7)), 5 )
 }
 
+const sumOfTwoNumbers = () => {
+    executeWithGenerator((v :{n: number[], t: number}) => JSON.stringify(sumOfTwoNumbersFinder(v.n, v.t)), 0, sum_of_numbersCases )
+}
+
 const palindromeCases = [121, 134431, 1345431, 11, 123324]
 const linkedListPalindromeCases = () => {
     return palindromeCases.map(value => {
@@ -114,6 +119,13 @@ const cyclicLinkedListCases = [
    
 ]
 
+const sum_of_numbersCases = [
+    {n: [2, 7, 11, 15], t: 9},
+    {n: [2,3,4], t: 6},
+    {n: [-1,0], t: -1},
+    {n: [0,0,3,4], t: 0 }
+]
+
 const linkedListSorted = [
     [getLinkedList([-8,-6,-6,-3,0,4,4,8]), getLinkedList([-7,-4,-3,0,5])] ,
     [getLinkedList([1,2,4]), getLinkedList([1,3,4])],
@@ -149,5 +161,7 @@ export {
     productOfSumExceptSelf,
     findPathIn2DArray,
     sumOfNumbersInList,
-    arrays
+    sumOfTwoNumbers,
+    arrays,
+    string
 }
