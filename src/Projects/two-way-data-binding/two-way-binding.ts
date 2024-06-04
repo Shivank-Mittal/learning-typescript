@@ -1,8 +1,9 @@
 var value:any;
 
 const input = document.getElementById('inputTester') as HTMLInputElement;
+const textBox = document.getElementById('search');
 const updatedValueElement = document.createElement('p');
-input.after(updatedValueElement)
+textBox.after(updatedValueElement)
 const state:{value: any } = {value :'Hi'}
 
 //Option A with temp object

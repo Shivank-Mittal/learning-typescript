@@ -1,24 +1,9 @@
 
-:host, * {
-    margin: 0;
-    padding: 0;
-}
-
 button {
     background-color: blanchedalmond;
     border: 2px solid black;
 }
 
-
-#Dijkstra {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f4f4f4;
-}
 
 #graph-container {
     width: 600px;
@@ -48,9 +33,57 @@ button {
     background-color: #FFEB3B; /* Visited nodes color */
 }
 
-/* button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
+.searchBox {
+    display:  flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: 0.5px solid black;
+    padding-left: 10px;
+    border-radius: 30px;
+    width: 300px;
+    height: 50px;
+    color: black;
+    overflow: hidden;
+}
+
+.searchBox-sugetion {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom: none;
+}
+
+#inputTester {
+    border: none;
+    width: inherit;
+}
+
+#inputTester:focus-visible {
+    border: none;
+    outline: none;
+}
+
+.collection {
+    opacity: 0;
+    color: black;
+    height: 100px;
+    width: 300px;
+    border: 0.5px solid black;
+    border-top: 0px;
+    padding-left: 10px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    overflow: scroll;
+}
+
+.collection > li {
+    text-decoration: none;
+    list-style-type: none;
+    margin-left: 20px;
     cursor: pointer;
-} */
+    visibility: hidden;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.show {
+    visibility: unset !important;
+}

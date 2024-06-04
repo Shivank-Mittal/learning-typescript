@@ -4,6 +4,7 @@
         <meta charset="utf-8" />
         <title>Learn Typescript</title>
         <link rel="stylesheet" type="text/css" href="index.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     </head>
     <body>
         <h1>Jai Shri Ram</h1>
@@ -15,11 +16,20 @@
         <li><a href="http://localhost:8080/timer.html"> Count down timer </a></li>
 
 
+        
         <button id="execute">Execute</button>
         <h4> Time taken <span id="time_taken"></span> </h4>
 
-        Free to use input <input type="text" id='inputTester'>
+        <section id="search">
+            <div class="searchBox">
+                <span class="material-symbols-outlined"> search </span> <input type="text" id='inputTester' autocomplete="off">
+            </div>
+            <div class="collection">
+                <li>test</li>
+            </div>
+        </section>
 
+        
         <section title="parent-child">
             <h2> parent child</h2>
 
@@ -32,9 +42,7 @@
 
 
 
-    <section id='flood-fill' >
-        
-    </section>
+    <section id='flood-fill'> </section>
 
 
     <section if="ticTacToe" id="tic-tak-toe">
@@ -51,18 +59,7 @@
             <div id="grid" class= "grid8"></div>
             <div id="grid" class= "grid9"></div>
         </div>
-
     </section>
-
-    <div id="Dijkstra">
-        <div id="graph-container">
-            <!-- Sample nodes -->
-            <div id="node1" class="node">1</div>
-            <div id="node2" class="node">2</div>
-            <div id="node3" class="node">3</div>
-            <div id="node4" class="node">4</div>
-        </div>
-    </div>
 
     <button onclick="startAlgorithm()">Start Dijkstra's Algorithm</button>
     </body>

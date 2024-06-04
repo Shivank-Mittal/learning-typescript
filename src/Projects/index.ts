@@ -3,6 +3,7 @@ import {addCircle} from './circle-generator';
 import {computeAmount} from './accunting-funciton/calculate-acount'
 import { twoWayBinding as  twoWayBindingChecker } from  './two-way-data-binding/two-way-binding'
 import play from  './Tic-Tak-Toe/tic-tak-toe'
+import {autoComplete} from './autocomplete-bar/autocomplete-bar'
 
 import { execute, executeWithGenerator } from '../executor';
 
@@ -26,5 +27,6 @@ export {
     addCircle,
     computeAmount,
     twoWayBinding,
-    play
+    play,
+    autoComplete
 }
