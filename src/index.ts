@@ -1,7 +1,7 @@
 import './style.css';
 import provider from './provider'
 
-provider.projects.autoComplete()
+provider.dsa.problems.string.matchCamelCase()
 
 // provider.dsa.problems.concatSortedLinkedList()
 
