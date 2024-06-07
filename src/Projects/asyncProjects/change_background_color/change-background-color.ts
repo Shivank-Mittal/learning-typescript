@@ -1,5 +1,5 @@
 import sample from 'lodash/sample';
-import { COLORS } from './colors'
+import { COLORS } from '../../colors'
 
 export default class ChangeColor {
     body = document.getElementsByTagName('body')[0];

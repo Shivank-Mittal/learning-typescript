@@ -1,6 +1,13 @@
-import {createGrid} from './grid'
+import {createGrid} from '../../utilities/grid'
+import Canvas from '../../utilities/canvas'
+
+const canvasObj = new Canvas();
+canvasObj.newCanvas()
+const canvas = canvasObj.canvas
+canvasObj.title = 'Flood FIll'
 
 const fillBoard = document.getElementById('flood-fill');
+canvas.append(fillBoard)
 const grid = createGrid(fillBoard, 'grid')
 
 fillBoard.addEventListener('click', (event) => {

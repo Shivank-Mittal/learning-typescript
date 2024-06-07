@@ -1,4 +1,8 @@
 
+body {
+    background-color: #FFFFFF;
+}
+
 button {
     background-color: blanchedalmond;
     border: 2px solid black;

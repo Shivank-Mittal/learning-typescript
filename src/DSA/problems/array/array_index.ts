@@ -1,5 +1,6 @@
-import { mergeSortedArray as mergeSortedArrayFn, mergeSortedArrayWithSorting} from './merge_sorted_array'
-import { removeElement as removeElementFn } from './remove_element'
+import { mergeSortedArray as mergeSortedArrayFn, mergeSortedArrayWithSorting} from './merge_sorted_array';
+import { removeElement as removeElementFn } from './remove_element';
+import { minimumSumLength as minimumSumLengthFinder} from './minimum_sum_length';
 
 import { executeWithGenerator } from '../../../executor';
 
@@ -10,6 +11,10 @@ export const mergeSortedArray = () => {
 
 export const removeElement = () => {
     executeWithGenerator( (v:{a:number[], v:number }) => removeElementFn(v.a, v.v), 0, removeElementCases)
+}
+
+export const minimumSumLength = () => {
+    executeWithGenerator( (v:{a:number[], v:number }) => minimumSumLengthFinder(v.a, v.v), 0, removeElementCases)
 }
 
 const mergeSortedArrayCases = [{numsA:  [1,2,3,0,0,0], numsB: [2,5,6], a: 3, b: 3},

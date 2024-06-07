@@ -1,7 +1,7 @@
 import './style.css';
 import provider from './provider'
 
-provider.dsa.problems.string.matchCamelCase()
+provider.projects.boxColorLauncher()
 
 // provider.dsa.problems.concatSortedLinkedList()
 
