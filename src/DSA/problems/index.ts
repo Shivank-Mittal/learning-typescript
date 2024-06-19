@@ -9,8 +9,11 @@ import { concatSortedLinkedList as concatSortedLinkedListTester } from './mergeT
 import { productOfSumExceptSelf as productOfSumExceptSelfGetter } from './product-of-sum';
 import { findPathIn2DArray as findPathIn2DArrayFinder } from './gridTraveler';
 import { sumOfNumbersInList as sumOfNumbersInListFinder, sumOfTwoNumbers as sumOfTwoNumbersFinder } from './sum_of_numbers';
+import { tribonacci as tribonacciFinder } from './tribonacci';
 import * as arrays from './array/array_index'
 import * as string from './string/string-index'
+import * as treeAndGraph from './tree-and-graph/tree-index'
+import * as dp from './dynamic-programing/dp-index'
 
 import getLinkedList from '../../utilities/linked_list_generator'
 import LinkedList from '../DS/linked-list'
@@ -56,8 +59,8 @@ const productOfSumExceptSelf = () => {
     executeWithGenerator((nums :number[]) => productOfSumExceptSelfGetter(nums),0 , [[1,2,3,4], [-1,1,0,-3,3]] )
 }
 
-const findPathIn2DArray = () => {
-    executeWithGenerator((nums :number[]) => findPathIn2DArrayFinder(nums[0], nums[1]), 0, findPathIn2DArrayCases )
+const tribonacci = () => {
+    executeWithGenerator((nums :number) => tribonacciFinder(nums), 0, tribonacciCases )
 }
 
 const sumOfNumbersInList = () => {
@@ -66,6 +69,11 @@ const sumOfNumbersInList = () => {
 
 const sumOfTwoNumbers = () => {
     executeWithGenerator((v :{n: number[], t: number}) => JSON.stringify(sumOfTwoNumbersFinder(v.n, v.t)), 0, sum_of_numbersCases )
+}
+
+
+const findPathIn2DArray = () => {
+    executeWithGenerator((nums :number[]) => findPathIn2DArrayFinder(nums[0], nums[1]), 0, findPathIn2DArrayCases )
 }
 
 const palindromeCases = [121, 134431, 1345431, 11, 123324]
@@ -145,6 +153,8 @@ const findPathIn2DArrayCases = [
     [18, 18],
 ]
 
+const tribonacciCases = [4, 25]
+
 
 export {
     isPalindrome,
@@ -162,6 +172,9 @@ export {
     findPathIn2DArray,
     sumOfNumbersInList,
     sumOfTwoNumbers,
+    tribonacci,
     arrays,
-    string
+    string,
+    treeAndGraph,
+    dp
 }

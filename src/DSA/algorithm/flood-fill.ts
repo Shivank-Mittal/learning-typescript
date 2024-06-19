@@ -33,7 +33,6 @@ function findNode (row: number, column: number): HTMLDivElement {
 }
 
 export default function floodFillAlgorithm() {
-    debugger
     floodFillDFS(findNode(0, 0), 0, 0)
 }
  

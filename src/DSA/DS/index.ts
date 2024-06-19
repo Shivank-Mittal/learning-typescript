@@ -37,11 +37,11 @@ const binarySearchTree = () => executeWithGenerator(() => {
     bst.addMany([10, 5, 15, 3, 7])
 
     console.log('Pre order')
-    bst.preOrder(bst.root)
+    bst.printPreOrder(bst.root)
     console.log('In order')
-    bst.inOrder(bst.root) 
+    bst.printInOrder(bst.root) 
     console.log('Post Order')
-    bst.postOrder(bst.root)
+    bst.printPostOrder(bst.root)
     console.log('level Order')
     bst.levelOrder()
 

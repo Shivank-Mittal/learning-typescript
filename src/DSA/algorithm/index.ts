@@ -12,7 +12,7 @@ import {
 import {pascalTree as pascalTreeGenerator} from './pascal-tree'
 import floodFillFinder from './flood-fill'
 
-import { executeWithGenerator} from '../../executor'    
+import { executeWithGenerator} from '../../executor'   
 import { getArray, getRandomArray } from '../../utilities/array_generator'    
 
 

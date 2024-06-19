@@ -11,7 +11,7 @@ function boxColorLauncher() {
     const canvas = canvasObject.canvas;
 
     const grid = createGrid(canvas, '', 3, 10);
-    canvas.addEventListener('click', (e) => {
+    canvas.addEventListener('click', async (e) => {
         const target = e.target as HTMLDivElement;
         const cellRow = target.getAttribute('row');
         const cellColumn = target.getAttribute('column');
@@ -19,6 +19,20 @@ function boxColorLauncher() {
 
         clickedBoxes.unshift(target);
         target.style.backgroundColor = COLORS.green
+
+        if(clickedBoxes.length === 7) {
+            for (let index = 0; index < clickedBoxes.length; index++) {
+                const b = clickedBoxes[index];
+                const p = new Promise<void>(res => {
+                    setTimeout(() => {
+                        b.style.backgroundColor = 'white'
+                        res();
+                    }, 1000)
+                })
+                await p
+            }
+            clickedBoxes.length = 0
+        }
     })
     createDesign(canvas);
 }

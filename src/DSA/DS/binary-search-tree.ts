@@ -35,26 +35,26 @@ export default class BinarySearchTree<T> {
         return this.searchNode(this._rootNode, value);
     }
 
-    preOrder(root: TreeNode<T> ) {
+    printPreOrder(root: TreeNode<T> ) {
         if(root) {
             console.log(root.value)
-            this.preOrder(root.left)
-            this.preOrder(root.right)
+            this.printPreOrder(root.left)
+            this.printPreOrder(root.right)
         }
     }
 
-    inOrder(root: TreeNode<T>) {
+    printInOrder(root: TreeNode<T>) {
         if(root) {
-            this.inOrder(root.left);
+            this.printInOrder(root.left);
             console.log(root.value);
-            this.inOrder(root.right)
+            this.printInOrder(root.right)
         }
     }
 
-    postOrder(root: TreeNode<T>) {
+    printPostOrder(root: TreeNode<T>) {
         if(root) {
-            this.postOrder(root.left);
-            this.postOrder(root.right);
+            this.printPostOrder(root.left);
+            this.printPostOrder(root.right);
             console.log(root.value)
         }
     }
