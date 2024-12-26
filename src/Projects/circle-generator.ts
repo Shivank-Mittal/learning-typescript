@@ -52,7 +52,6 @@ function canAddCircle(allowedNumber: number): boolean {
 }
 
 function isCircleIntersecting() {
-    debugger
    let circles = document.getElementsByClassName('circle');
    let circle1X = circles[0].getClientRects().item(0).x;
    let circle1Y = circles[0].getClientRects().item(0).y;

@@ -7,7 +7,6 @@ import { executeWithGenerator} from '../../executor'
 
 const linkedListDemo = () => executeWithGenerator(() => {
     const ls = new LinkedList();
-    debugger
         ls.add(24)
         ls.add([25, 26, 27, 28, 29, 30, 31])
         ls.addToTail(32)
@@ -30,7 +29,6 @@ const linkedListDemo = () => executeWithGenerator(() => {
 
 
 const binarySearchTree = () => executeWithGenerator(() => {
-    debugger
     const bst = new BinarySearchTree();
     console.log(bst.isEmpty)
 
@@ -52,8 +50,6 @@ const binarySearchTree = () => executeWithGenerator(() => {
 }, 5)
 
 const queue = () => executeWithGenerator(() => {
-
-    debugger
     const fillQueue = function(queue: QueueWithArray<number>| QueueWithObjet<number>, values: number[]){
         for (let index = 0; index < values.length; index++) {
             queue.enqueue(values[index]);

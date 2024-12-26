@@ -1,5 +1,5 @@
 /// <reference types="node" />
-import { COLORS } from './colors';
+import { COLORS } from '../../colors';
 export default class ChangeColor {
     body: HTMLBodyElement;
     camelion: HTMLElement;

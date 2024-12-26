@@ -3,6 +3,7 @@ import { longestValidParentheses as longestValidParanthesesFinder} from './longe
 import { matchCamelCase as matchCamelCaseFinder} from './camel-case-patter';
 import { convertCameToKebabCase as convertCameToKebabCaseConverter} from './camerCase_to-kebab-case'
 import { reversString as reversStringConverter} from './reverse-string'
+import { reverseVowels  as reverseVowelsConverter} from './swap-vowel'
 
 import { executeWithGenerator } from '../../../executor';
 
@@ -27,6 +28,10 @@ export const reversString = () => {
     executeWithGenerator((v: {st:string, k:number}) => reversStringConverter(v.st, v.k), 0, reverseString)
 }
 
+export const reverseVowels = () => {
+    executeWithGenerator((v:string) => reverseVowelsConverter(v), 0, reverseVowelsCase)
+}
+
 const mergeSortedArrayCases = [
     {s: "abc", t:"ahbgdc"}
 ]
@@ -41,6 +46,6 @@ const reverseString = [
     {st: 'abcdefg', k:2}
 ]
 
-const camelCase = [
-    'testCamelCase'
-]
+const camelCase = ['testCamelCase']
+
+const reverseVowelsCase = ['hello']

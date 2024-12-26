@@ -39,7 +39,7 @@ const getPlayerSymbol = {
 let currentPlayer: PLAYER = PLAYER.PLAYER1;
 
 const eventToAdd = addValue.bind(this)
-board.addEventListener('click', eventToAdd)
+board?.addEventListener('click', eventToAdd)
 
 function addValue(event: Event){
     const target = event.target as HTMLDivElement;
@@ -83,8 +83,5 @@ function getPlayerPositions(player: PLAYER){
 function play() {
 
 }
-
-
-
 
 export default play

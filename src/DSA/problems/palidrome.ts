@@ -28,6 +28,7 @@ function isLinkedListPalindrome(linkedList: LinkedList<number>) {
 }
 
 export {
+    isPalindromeSelf,
     isPalindromeLearned as isPalindrome,
     isLinkedListPalindrome
 }

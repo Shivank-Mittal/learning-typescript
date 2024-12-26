@@ -35,7 +35,8 @@ function updateView(timeTakenToComplete: number, result: unknown, functionName =
     document.getElementById('time_taken').innerText = `${timeTakenToComplete?.toPrecision(1)} milliseconds`;
 }
 
-// 
+
+
 export function executeWithGenerator(callback: Function, count = 0,  cases: unknown[] = []){
     let maxCount = count || cases.length
 
@@ -49,7 +50,6 @@ export function executeWithGenerator(callback: Function, count = 0,  cases: unkn
                 let endTime = performance.now()
                 timeTaken = endTime - startTime
             }catch(e) {
-                debugger
                 console.log(e)
             }
             yield updateView(timeTaken ,result, callback.name)

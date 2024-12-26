@@ -85,12 +85,8 @@ const linkedListPalindromeCases = () => {
         return ls
     })
 }
-const fibonacciCases = [1, 2 , 3, 5, 8, 121]
-const anagramCases = [
-    ['abc', 'acb'],
-    ['ccaaab', 'bccaaa'],
-    ['abc', 'cds']
-] 
+const fibonacciCases = [1, 2 , 3, 5, 8, 121];
+const anagramCases = [ ['abc', 'acb'], ['ccaaab', 'bccaaa'], ['abc', 'cds'] ];
 const getSumOfNumbersCases = [
     [[1, 2, 3, 4], 7],
     [[1, 2, 3, 4], 5],
@@ -126,7 +122,6 @@ const cyclicLinkedListCases = [
     })(),
    
 ]
-
 const sum_of_numbersCases = [
     {n: [2, 7, 11, 15], t: 9},
     {n: [2,3,4], t: 6},
@@ -135,16 +130,12 @@ const sum_of_numbersCases = [
 ]
 
 const linkedListSorted = [
-    [getLinkedList([-8,-6,-6,-3,0,4,4,8]), getLinkedList([-7,-4,-3,0,5])] ,
+    [getLinkedList([-8,-6,-6,-3,0,4,4,8]), getLinkedList([-7,-4,-3,0,5])],
     [getLinkedList([1,2,4]), getLinkedList([1,3,4])],
     [getLinkedList([]), getLinkedList([0])],
 ]
 
-const anagramGroupCases  = [
-    ["eat","tea","tan","ate","nat","bat"],
-    [""],
-    ["a"]
-]
+const anagramGroupCases  = [["eat","tea","tan","ate","nat","bat"], [""], ["a"]]
 
 const findPathIn2DArrayCases = [
     [2, 3],

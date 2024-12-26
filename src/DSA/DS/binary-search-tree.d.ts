@@ -6,9 +6,9 @@ export default class BinarySearchTree<T> {
     addMany(values: T[]): void;
     add(value: T): void;
     contains(value: T): boolean;
-    preOrder(root: TreeNode<T>): void;
-    inOrder(root: TreeNode<T>): void;
-    postOrder(root: TreeNode<T>): void;
+    printPreOrder(root: TreeNode<T>): void;
+    printInOrder(root: TreeNode<T>): void;
+    printPostOrder(root: TreeNode<T>): void;
     levelOrder(): void;
     private searchNode;
     private insertNode;

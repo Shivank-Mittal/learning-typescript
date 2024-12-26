@@ -1,5 +1,4 @@
 Object.defineProperty(Array, 'myMap', {enumerable: true, configurable: true, writable: true})
-debugger
 Array.prototype.map = function(callbackFn: Function) {
     const inputArray = this;
     const returnArray:any = [];

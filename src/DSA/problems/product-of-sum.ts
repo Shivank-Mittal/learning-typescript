@@ -16,14 +16,21 @@
 
 
 export function productOfSumExceptSelf(nums: number[]): number[] {
-    if(nums.length === 1) return nums;
-    const productArray: number[] = []
+    const left = new Array(nums.length).fill(1)
+    const right = new Array(nums.length).fill(1)
+    const answer = new Array(nums.length).fill(1)
 
-    const productOfAll = nums.reduce((prev, curr) => {
-        return prev ? prev*curr: prev
-    }, 1)
+    for(let index = 1; index < nums.length; index ++) {
+        right[index] = nums[index - 1] * right[index - 1]; 
+    }
 
-    nums.forEach(v => productArray.push(productOfAll/v))
+    for(let index = nums.length - 2; index >= 0; index --) {
+        left[index] = nums[index + 1] * left[index + 1]
+    }
 
-    return nums
+    for(let index = 0; index < left.length; index++) {
+        answer[index] = right[index] * left[index]
+    }
+
+    return answer
 }

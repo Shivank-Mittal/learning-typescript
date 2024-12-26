@@ -36,3 +36,39 @@ export function findPath(graph: number[][], position = 0, visited = new Set<numb
 
     return paths
 }
+
+
+export function findPathWithEdges(n: number, edges: number[][], source: number, destination: number): boolean {
+
+    const queue:number[] = [source];
+    const visited = new Set<number>();
+
+    const graph = new Map<number, Array<number>>();
+    for(const [src, dest] of edges){
+        if(!graph.has(src))
+        graph.set(src, []);
+        if(!graph.has(dest))
+        graph.set(dest, []);
+        
+        graph.get(src).push(dest);
+        graph.get(dest).push(src);
+    }
+        
+    function searchBFS(): boolean{
+        if(!queue.length) return false;
+        const node = queue.shift();
+        if(node === destination) return true;
+   
+        const neighbours = graph.get(node)
+        
+        neighbours.forEach(neighbour => {
+            if(visited.has(neighbour)) return;
+            visited.add(neighbour)
+            queue.push(neighbour)
+        });
+
+        return searchBFS()
+    }
+
+    return searchBFS()
+}

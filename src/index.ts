@@ -1,7 +1,9 @@
 import './style.css';
 import provider from './provider'
+import { execute } from './executor';
+import projects from './Projects/index'
 
-provider.dsa.problems.treeAndGraph.findBiggestIsland()
+// provider.dsa.problems.productOfSumExceptSelf()
 
 
 // provider.dsa.problems.concatSortedLinkedList()
@@ -15,3 +17,5 @@ provider.dsa.problems.treeAndGraph.findBiggestIsland()
 // provider.dsa.algo.mergeSort()
 // execute(() => provider.algo.binarySearch(arrayToProvide, value), 'OnClick')
 // execute(() => provider.algo.binarySearch(arrayToProvide, 500000), 'OnClick')
+
+projects();

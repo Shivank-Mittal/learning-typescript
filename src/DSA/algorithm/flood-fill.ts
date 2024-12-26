@@ -10,7 +10,7 @@ const fillBoard = document.getElementById('flood-fill');
 canvas.append(fillBoard)
 const grid = createGrid(fillBoard, 'grid')
 
-fillBoard.addEventListener('click', (event) => {
+fillBoard?.addEventListener('click', (event) => {
     const target = event.target as HTMLDivElement;
     if(!target.classList.contains('grid')) return;
     const cellRow = target.getAttribute('row');
