@@ -1,3 +1,4 @@
+
 async function testPromise(): Promise<void>{
     return new Promise<void>(res => {
         const a = () => res();

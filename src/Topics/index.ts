@@ -1,4 +1,4 @@
-import * as promiseTypes from './promises'
+import * as promise from './promise/index'
 import Calculator from './calculator'
 import calculateTicketTime from './ticket-time-calculate'
 import {lengthOfLastWord}  from './string'
@@ -10,7 +10,7 @@ import {testGeneratorFunction} from './generator';
 
 
 export {
-    promiseTypes,
+    promise,
     Calculator,
     calculateTicketTime,
     lengthOfLastWord,

@@ -10,10 +10,8 @@ export default class BinarySearchTree<T> {
 
     constructor( value: T | null = null) {
         if(value) {
-            const newNode = new TreeNode(value);
-            this._rootNode = newNode;
-        }
-        
+            this._rootNode = new TreeNode(value);;
+        }   
     }
 
     addMany(values: T[]) {

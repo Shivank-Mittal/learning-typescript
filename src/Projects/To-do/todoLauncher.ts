@@ -32,7 +32,6 @@ function add() {
 }
 
 function onTodoClicked(event: Event) {
-    debugger
     const element = event.target as HTMLElement;
     const clickedType = element.getAttribute("name");
     if(clickedType === "todo") {

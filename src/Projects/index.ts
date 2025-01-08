@@ -38,7 +38,6 @@ function projectsLauncher() {
 }
 
 export default(() => {
-    debugger
     projectsLauncher();
     return { 
         ChangeColor,
