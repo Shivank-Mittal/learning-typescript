@@ -1,8 +1,6 @@
 import LinkedList from './linked-list'
 import BinarySearchTree from './binary-search-tree'
-import { QueueWithArray, QueueWithObjet} from './queue'
-
-import { executeWithGenerator} from '../../executor'  
+import { QueueWithArray, QueueWithObjet} from './queue' 
 
 
 const linkedListDemo = () => executeWithGenerator(() => {

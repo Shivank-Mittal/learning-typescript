@@ -14,10 +14,10 @@ import * as arrays from './array/array_index'
 import * as string from './string/string-index'
 import * as treeAndGraph from './tree-and-graph/tree-index'
 import * as dp from './dynamic-programing/dp-index'
+import * as map from './map/index'
 
 import getLinkedList from '../../utilities/linked_list_generator'
 import LinkedList from '../DS/linked-list'
-import { executeWithGenerator} from '../../executor' 
 
 const isPalindrome = () =>  
     executeWithGenerator((prams: number) => palindromeChecker(prams), 0, palindromeCases);
@@ -167,5 +167,6 @@ export {
     arrays,
     string,
     treeAndGraph,
-    dp
+    dp,
+    map
 }

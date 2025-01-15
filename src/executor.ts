@@ -1,5 +1,5 @@
 export async function execute(functionToCalled: Function, withClick: 'OnClick' | undefined = undefined) {
-    console.log(`Executing ${functionToCalled.name}`)
+    console.log(`Executing Registered`)
     if(withClick === 'OnClick') {
         document.getElementById('execute').addEventListener('click', async () => functionRunner(functionToCalled));
         return;

@@ -1,7 +1,5 @@
 import { sumOfCoin as sumOfCoinFinder, sumOfCoinPath as sumOfCoinPathFinder} from './sumOfCoin';
 
-import { executeWithGenerator } from '../../../executor';
-
 
 export const sumOfCoin = () => {
     executeWithGenerator( (v:{a: number[], v:number}) => sumOfCoinFinder(v.a, v.v), 0, removeElementCases)

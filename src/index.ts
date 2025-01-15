@@ -1,8 +1,7 @@
 import './style.css';
-import provider from './provider'
-import { execute } from './executor';
-import projects from './Projects/index'
-import {promise} from './Topics/index'
+import './global';
+import { problems} from './DSA/index'
+import { practice} from './practice/index'
 
 // provider.dsa.problems.productOfSumExceptSelf()
 
@@ -18,8 +17,4 @@ import {promise} from './Topics/index'
 // provider.dsa.algo.mergeSort()
 // execute(() => provider.algo.binarySearch(arrayToProvide, value), 'OnClick')
 // execute(() => provider.algo.binarySearch(arrayToProvide, 500000), 'OnClick')S
-
-
-projects();
-
-promise.rejectedPromise;
+problems.map.ransome();

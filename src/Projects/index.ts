@@ -7,8 +7,6 @@ import {autoComplete} from './autocomplete-bar/autocomplete-bar'
 import { boxColorLauncher } from './box-color/box-color-index'
 import todoLauncher from './To-do/todoLauncher'
 
-import { execute, executeWithGenerator } from '../executor';
-
 // execute(()=> {
 //     return computeAmount().lack(15).crore(15).crore(2).lack(20).thousand(45).crore(7).value()
 // }, 'OnClick')
@@ -29,7 +27,7 @@ const twoWayBindingCases = [
 
 function projectsLauncher() {
     const projectSection = document.getElementById("projectsSection");
-    projectSection.addEventListener('click', (e: Event) => {
+    projectSection!.addEventListener('click', (e: Event) => {
         const target = e.target as HTMLDivElement;
         if(target.id === "toDo") {
             todoLauncher()

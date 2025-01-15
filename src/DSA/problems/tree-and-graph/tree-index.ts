@@ -5,8 +5,6 @@ import { findPathWithEdges as pathWithEdgesFinder } from './find-path-directed-g
 import { captureIsland as captureIslandFinder } from './capture-region'
 import { findIslands as islandFinder, findConnectedIslandsWithObjectInput as connectedIslandCountFinder, findBiggestIsland as findBiggestIslandFinder }  from './connected-island'
 
-import { executeWithGenerator } from '../../../executor';
-
 
 function treeGenerator(num: number[]) {
     const bt = new BST<number>();

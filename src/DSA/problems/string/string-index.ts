@@ -5,8 +5,6 @@ import { convertCameToKebabCase as convertCameToKebabCaseConverter} from './came
 import { reversString as reversStringConverter} from './reverse-string'
 import { reverseVowels  as reverseVowelsConverter} from './swap-vowel'
 
-import { executeWithGenerator } from '../../../executor';
-
 
 export const isSubsequence = () => {
     executeWithGenerator( (v: {s:string, t:string}) => isSubSequenceFinder(v.s, v.t), 0, mergeSortedArrayCases)
