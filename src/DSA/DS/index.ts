@@ -1,6 +1,6 @@
 import LinkedList from './linked-list'
 import BinarySearchTree from './binary-search-tree'
-import { QueueWithArray, QueueWithObjet} from './queue' 
+import { QueueWithArray, QueueWithObject} from './queue' 
 
 
 const linkedListDemo = () => executeWithGenerator(() => {
@@ -48,7 +48,7 @@ const binarySearchTree = () => executeWithGenerator(() => {
 }, 5)
 
 const queue = () => executeWithGenerator(() => {
-    const fillQueue = function(queue: QueueWithArray<number>| QueueWithObjet<number>, values: number[]){
+    const fillQueue = function(queue: QueueWithArray<number>| QueueWithObject<number>, values: number[]){
         for (let index = 0; index < values.length; index++) {
             queue.enqueue(values[index]);
             
@@ -62,7 +62,7 @@ const queue = () => executeWithGenerator(() => {
     console.log(queueWithArray.size())
 
 
-    const queueWithObjet = new QueueWithObjet<number>();
+    const queueWithObjet = new QueueWithObject<number>();
     fillQueue(queueWithObjet, [1, 2, 3, 4]);
     console.log(queueWithObjet.peek())
     queueWithObjet.print()

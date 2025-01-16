@@ -1,14 +1,18 @@
  export class QueueWithArray <T> {
     private items:T[] = [];
 
-/**
- * Adds an element to the end of the queue.
- * @param value - The element to be added to the queue.
- */
+    /**
+     * Adds an element to the end of the queue.
+     * @param value - The element to be added to the queue.
+     */
     enqueue(value: T){
         this.items.push(value)
     }
 
+     /**
+     * Removes an element to the top of the queue.
+     * @return The element removed from the queue. If the queue is empty, undefined is returned.
+     */
     dequeue():T | undefined {
         return this.items.shift()
     }
@@ -23,7 +27,7 @@
     }
 
     size(): number {
-        return  this.items.length;
+        return this.items.length;
     }
 
     print() {
@@ -32,7 +36,7 @@
  }
 
 
- export class QueueWithObjet<T> {
+ export class QueueWithObject<T> {
     private items: {[Key: number]: T} = {}
     private front = 0;
     private end = 0;

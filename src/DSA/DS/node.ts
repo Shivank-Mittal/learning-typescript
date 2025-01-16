@@ -1,3 +1,7 @@
+
+
+import {QueueWithArray as Queue} from './queue'
+
 export class LinkListNode<T> {
     value: T;
     next: LinkListNode<T> | null;
@@ -12,13 +16,12 @@ export class LinkListNode<T> {
     }
 }
 
-
-export class TreeNode<T> {
-    value:T;
-    left: TreeNode<T> = null;
-    right: TreeNode<T> = null;
-
+export class Tree<T> {
+    value: T;
+    children: Tree<T>[] = []
     constructor(value:T) {
-        this.value = value
+        this.value = value;
     }
 }
+
+

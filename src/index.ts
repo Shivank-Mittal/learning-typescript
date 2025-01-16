@@ -17,4 +17,6 @@ import { practice} from './practice/index'
 // provider.dsa.algo.mergeSort()
 // execute(() => provider.algo.binarySearch(arrayToProvide, value), 'OnClick')
 // execute(() => provider.algo.binarySearch(arrayToProvide, 500000), 'OnClick')S
-problems.map.ransome();
+problems.map.validPrantheses();
+
+// practice();

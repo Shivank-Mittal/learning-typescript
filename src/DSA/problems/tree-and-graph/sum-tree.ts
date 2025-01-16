@@ -1,7 +1,7 @@
 // Find the sum of the tree
 
 import BST from '../../DS/binary-search-tree';
-import {TreeNode} from '../../DS/node'
+import {BinaryTree} from '../../DS/binary-tree'
 
 
 export function findSum (bt:  BST<number> ): number {
@@ -14,7 +14,7 @@ function findSumDFT(bt: BST<number>) {
     let sum = 0
     if(!bt.root) return 0
     
-    function traverse(node: TreeNode<number>): number{
+    function traverse(node: BinaryTree<number>): number{
         const isLeafNode = !node.left && !node.right
         if(isLeafNode) return node.value
         let leftValue = 0
@@ -35,7 +35,7 @@ function findSumDFT(bt: BST<number>) {
 
 
 function findSumBFS(bt: BST<number>): number {
-    const queue: TreeNode<number>[] = [];
+    const queue: BinaryTree<number>[] = [];
 
     let sum = 0
     function traverse(){ 

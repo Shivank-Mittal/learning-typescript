@@ -1,6 +1,8 @@
+import { BinaryTree } from "../DSA/DS/binary-tree";
+
 export default function(prams: any) {
     const value = [1, 4, 5, 8, 9, 0 ,2  , 8, 0]
-    return gcdWithBruteforce(42, 56) 
+    return minSubArrayLen(7, [2,3,1,2,4,3]);
 }
 
 function findFirst(pram: number[], value: number): number {
@@ -78,6 +80,37 @@ function gcdWithBruteforce(numOne: number, numTwo: number) {
             return element
         }
     }
-
     return 0
+}
+
+
+function minSubArrayLen(target: number, nums: number[]): number {
+    let maxArraySize = 0;
+    let sum = 0;
+    let start = 0;
+
+    for(let index = 0; index <= nums.length; index++) {
+        sum = sum + nums[index];
+    
+        while(start <= index && sum >= target) {
+            maxArraySize = updateMaxArray(start, index + 1, maxArraySize);
+            sum = sum - nums[start++];
+        }
+    }
+
+    return maxArraySize  
+};
+
+function updateMaxArray(start: number, finish: number, oldArrayLength:number): number {
+    const newLength = finish - start;
+    if(!oldArrayLength) return newLength;
+
+    return oldArrayLength > newLength ? newLength: oldArrayLength
+}
+
+
+
+function treePractice() {
+ const binaryTree = new BinaryTree(5);
+ binaryTree.left = new BinaryTree(3)
 }
