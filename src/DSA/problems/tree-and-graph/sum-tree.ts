@@ -40,7 +40,7 @@ function findSumBFS(bt: BST<number>): number {
     let sum = 0
     function traverse(){ 
         if(!queue.length) return
-        const removedValue = queue.shift()
+        const removedValue = queue.shift()!;
         sum = sum + removedValue.value
         if(removedValue.left) queue.push(removedValue.left)
         if(removedValue.right) queue.push(removedValue.right)

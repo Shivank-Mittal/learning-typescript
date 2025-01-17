@@ -38,7 +38,7 @@ function mergeSortSelf(unsortedArray: number[]) {
     const merge = (left: number[], right: number[]) => {
         const sortedArray = [] as number[];
         while(left.length && right.length) {
-            left[0] < right[0] ? sortedArray.push(left.shift()) : sortedArray.push(right.shift())
+            left[0] < right[0] ? sortedArray.push(left.shift()!) : sortedArray.push(right.shift()!)
         }
 
         return [...sortedArray, ...left, ...right];

@@ -11,9 +11,9 @@
     "build:dev": "rm -r ./dist -r; webpack --mode=development",
     "build:prod": "rm -r ./dist -r; webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
-    "serve": "webpack serve"
+    "serve": "webpack serve --no-open"
   },
-  "author": "",
+  "author": "Shivank Mittal",
   "license": "ISC",
   "dependencies": {
     "@types/lodash": "^4.17.0",

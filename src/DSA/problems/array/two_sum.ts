@@ -13,7 +13,7 @@
 // Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 
 
-export function twoSum(nums: number[], target: number): number[] {
+export function twoSum(nums: number[], target: number) {
     const numsLength =nums.length;
     const record = new Map<number, number>();
     record.set(nums[0], 0);

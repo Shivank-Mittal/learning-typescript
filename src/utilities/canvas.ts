@@ -11,7 +11,7 @@ export default class Canvas {
     set canvas(newCanvas: HTMLElement) {
         if(this.canvas) this.clean();
         this.canvasElement = newCanvas;
-        this.attachCanvas(this.canvas);
+        this.attachCanvas(this.canvasElement);
         this.styleCanvas()
     }
 
@@ -58,6 +58,7 @@ export default class Canvas {
     }
 
     private attacheTitle() {
+        if(!this.canvas) return;
         const title  = document.createElement('h2')
         title.innerText = this.title
         this.canvas.before(title)

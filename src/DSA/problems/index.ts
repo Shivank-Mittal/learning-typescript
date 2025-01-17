@@ -45,7 +45,7 @@ const rotateArray = () =>
     executeWithGenerator( (prams:[number[], number]) => rotateArrayChecker(prams[0], prams[1]), 0, rotateCases); 
 
 const isCyclicLinkedList = () => 
-    executeWithGenerator((ls: LinkedList<number>) => isLinkedListIsCyclicChecker(ls.findAt(0)), 0, cyclicLinkedListCases)
+    executeWithGenerator((ls: LinkedList<number>) => isLinkedListIsCyclicChecker(ls.findAt(0)!), 0, cyclicLinkedListCases)
 
 const concatSortedLinkedList = () => 
     executeWithGenerator(
@@ -108,16 +108,16 @@ const cyclicLinkedListCases = [
     (() => {
         let ls = new LinkedList<number>();
         ls.add([1, 1, 1, 1])
-        let lastElement = ls.findAt(ls.size - 1)
-        lastElement.next = ls.findAt(0);
+        let lastElement = ls.findAt(ls.size - 1)!
+        lastElement.next = ls.findAt(0)!;
         return ls
     })(),
     (() => {
         let ls = new LinkedList<number>();
         ls.add([1, 4, 3, 4, 5, 8])
         let thirdElement = ls.findAt(3)
-        let lastElement = ls.findAt(ls.size - 1)
-        lastElement.next = thirdElement
+        let lastElement = ls.findAt(ls.size - 1)!
+        lastElement.next = thirdElement!
         return ls
     })(),
    

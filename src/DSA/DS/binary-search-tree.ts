@@ -2,16 +2,14 @@ import { BinaryTree}  from './binary-tree'
 import { QueueWithObject as Queue}  from './queue'
 
 export default class BinarySearchTree<T> {
-    private _rootNode: BinaryTree<T> | null;
+    private _rootNode: BinaryTree<T>;
 
     get root(){
         return this._rootNode;
     }
 
-    constructor( value: T | null = null) {
-        if(value) {
-            this._rootNode = new BinaryTree(value);;
-        }   
+    constructor( value: T) {
+        this._rootNode = new BinaryTree(value);;
     }
 
     addMany(values: T[]) {
@@ -90,7 +88,7 @@ export default class BinarySearchTree<T> {
     }
 
     isTreeBST(node: BinaryTree<T>): boolean {
-        if(!node) return
+        if(!node) return false
 
         if(node.left && node.left.value > node.value) return false;
         if(node.right && node.right.value < node.value ) return false;
@@ -108,17 +106,15 @@ export default class BinarySearchTree<T> {
 
 
 export class BinarySearchTreeModified<T> extends BinaryTree<T> {
-    private _rootNode: BinaryTree<T> | null;
+    private _rootNode: BinaryTree<T>;
 
     get root(){
         return this._rootNode;
     }
 
-    constructor( value: T | null = null) {
+    constructor( value: T) {
         super(value);
-        if(value) {
-            this._rootNode = new BinaryTree(value);;
-        }   
+        this._rootNode = new BinaryTree(value);;
     }
 
     addMany(values: T[]) {
@@ -197,7 +193,7 @@ export class BinarySearchTreeModified<T> extends BinaryTree<T> {
     }
 
     isTreeBST(node: BinaryTree<T>): boolean {
-        if(!node) return
+        if(!node) return false
 
         if(node.left && node.left.value > node.value) return false;
         if(node.right && node.right.value < node.value ) return false;

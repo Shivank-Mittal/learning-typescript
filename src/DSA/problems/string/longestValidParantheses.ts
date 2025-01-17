@@ -30,13 +30,13 @@ export function longestValidParentheses(s: string) {
     let sArray = s.split('');
 
     for (let i = 0; i < sArray.length; i++) {
-        let currentValue = counterMap.get(sArray[i])
+        let currentValue = counterMap.get(sArray[i])!
         if(sArray[i] === '(') startCounting = true;
         startCounting && counterMap.set(sArray[i], ++currentValue)
     }
 
-    const totalStart = counterMap.get('(')
-    const totalEnd = counterMap.get(')')
+    const totalStart = counterMap.get('(')!
+    const totalEnd = counterMap.get(')')!
     const valueToReturn = totalStart < totalEnd ? totalStart: totalEnd;
     return valueToReturn * 2
 }

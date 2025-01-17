@@ -3,7 +3,7 @@ import BinarySearchTree from './binary-search-tree'
 import { QueueWithArray, QueueWithObject} from './queue' 
 
 
-const linkedListDemo = () => executeWithGenerator(() => {
+const linkedListDemo = () => {
     const ls = new LinkedList();
         ls.add(24)
         ls.add([25, 26, 27, 28, 29, 30, 31])
@@ -23,10 +23,10 @@ const linkedListDemo = () => executeWithGenerator(() => {
 
         // console.log(ls.removeFromHead())
         // console.log(ls.removeFromTail())
-    }, 5)
+    }
 
 
-const binarySearchTree = () => executeWithGenerator(() => {
+function binarySearchTreeDemo () {
     const bst = new BinarySearchTree(10);
     console.log(bst.isEmpty)
 
@@ -45,9 +45,9 @@ const binarySearchTree = () => executeWithGenerator(() => {
 
     console.log(bst.contains(3))
     console.log(bst.contains(55))
-}, 5)
+}
 
-const queue = () => executeWithGenerator(() => {
+function queueDemo () {
     const fillQueue = function(queue: QueueWithArray<number>| QueueWithObject<number>, values: number[]){
         for (let index = 0; index < values.length; index++) {
             queue.enqueue(values[index]);
@@ -68,13 +68,16 @@ const queue = () => executeWithGenerator(() => {
     queueWithObjet.print()
     console.log(queueWithObjet.size())
 
-}, 5)
+}
 
 
 
 
 export {
+    LinkedList,
     linkedListDemo,
-    binarySearchTree,
-    queue
+    binarySearchTreeDemo,
+    queueDemo,
+    QueueWithArray,
+    QueueWithObject
 }

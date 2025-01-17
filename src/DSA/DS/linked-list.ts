@@ -31,10 +31,14 @@ export default class LinkedList<T> implements Iterable<LinkListNode<T>> {
         lastNode.next = new LinkListNode(data);
     }
 
+    /**
+     * Removes the node from head
+     * @returns removed node or undefined if list is empty
+     */
     addAt(data: T, index: number) {
+
         if(index < 0 || index > this.size) {
-            console.log('Not a valid index');
-            return
+            throw new Error('Index is out of bounds');
         }
 
         const newNode = new LinkListNode(data)
@@ -44,58 +48,93 @@ export default class LinkedList<T> implements Iterable<LinkListNode<T>> {
             return
         }
 
-        let elementAtIndex = this.findAt(index);
+        let elementAtIndex = this.findAt(index)!;
 
         const nextElement  = elementAtIndex.next;
         elementAtIndex.next = newNode
         newNode.next = nextElement
     }
 
-    removeFrom_Head(): T {
+    /**
+     * Removes the node from head
+     * @returns removed node or undefined if list is empty
+     */
+    removeFrom_Head(): T | undefined {
+        if(!this._head) return undefined;
+        if(this._head.next) {
+            const currentNode = this._head
+            this._head = null;
+            return currentNode.value;
+        };
         const returnNode = this._head
         this._head = this._head.next
         return returnNode.value
     }
 
-    removeFromTail(): T {
+    /**
+     * Removes the node from tail
+     * @returns removed node or undefined if list is empty
+     */
+    removeFromTail(): T | undefined{
         let currentNode = this._head
 
-        while(currentNode.next.next) {
-            currentNode = currentNode.next
+        if(!currentNode) return undefined;
+        const next = currentNode.next
+
+        if(!next) {
+            this._head = null;
+            return currentNode.value;
         }
-        const returnNode = currentNode.next;
+
+        while(next.next) {
+            currentNode = next
+        }
+        const returnNode = next;
         currentNode.next = null
 
         return returnNode.value
     }
 
-    findAt(index: number): LinkListNode<T>{
+    /**
+     * Find value at index
+     * @returns return the node of that index. Or undefined if the index is out of bond.
+     */
+    findAt(index: number): LinkListNode<T> | undefined{
+        if(this.isEmpty() || index < 0 || index >= this.size) return undefined;
 
-        let element = this._head;
+        let node = this._head;
         for (let counter = 1; counter <= index; counter++) {
-            element = element.next
+            if (!node || !node.next) return undefined;
+            node = node.next
         }
-        return element
+        return node || undefined;
     }
 
-    find(valueToFind: T): LinkListNode<T>{
-        if(!this.size) {
-            return 
+    isEmpty(): boolean {
+        return Boolean(this._head)
+    }
+
+    /**
+     * Find the node with value
+     * @returns the node which have matching value. Or undefined if not found.
+     */
+    find(valueToFind: T): LinkListNode<T> | undefined{
+        let node = this._head;
+        while(node) {
+            if(node.value === valueToFind) return node
+            node = node.next
         }
 
-        let element = this._head;
-        for (let counter = 1; counter < this.size - 1; counter++) {
-            if(element.value === valueToFind) return element
-            element = element.next
-        }
+        return undefined
     }
 
     forEach(callback: Function){ 
-        let currentNode = this._head;
+        if(this.isEmpty()) return;
+        let currentNode = this._head!;
 
         for (let index = 0; index < this.size; index++) {
             callback(currentNode.value, index, currentNode);
-            currentNode = currentNode.next
+            currentNode = currentNode.next!
         }
     }
 
@@ -103,21 +142,23 @@ export default class LinkedList<T> implements Iterable<LinkListNode<T>> {
         if(!this.size) return;
 
         let newList;
-        let currentNode = this._head;
+        let currentNode = this._head!;
         for (let index = 0; index < this.size; index++) {
-            let tempList = newList;
             newList = currentNode.duplicate();
-            newList.next = tempList
-            currentNode = currentNode.next
+            newList.next = newList
+            currentNode = currentNode.next!
         }
-        this._head = newList;
+        this._head = newList!;
         return this;
     }
 
-    get size() {
+    get size(): number {
         let counter = 1
+        
+        if(!this._head || !this._head.next) return 0;
+        if(!this._head.next) return 1
+            
         let currentNode = this._head;
-
         while(currentNode.next) {
             counter++
             currentNode = currentNode.next
@@ -150,7 +191,7 @@ export default class LinkedList<T> implements Iterable<LinkListNode<T>> {
 
     // making the linked list iterable, now we can use for..of loop to iterate throw the values.
     *[Symbol.iterator](): Iterator<LinkListNode<T>> {
-        let currentValue: LinkListNode<T> = this._head
+        let currentValue = this._head
         while(true) {
             if(!currentValue) return
             yield currentValue;

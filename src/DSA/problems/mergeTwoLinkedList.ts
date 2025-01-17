@@ -19,19 +19,19 @@ function concatSortedLinkedList(list1: ListNode<number> | null, list2: ListNode<
     let currentOfListTwo = list2;
 
     let newNode: ListNode<number> | null = new ListNode(-1);
-    let lastElement: ListNode<number> | null = newNode;
+    let lastElement: ListNode<number> = newNode;
 
     const moveFirstList = (currentOfListOne: ListNode<number> | null):  ListNode<number> | null =>{
         lastElement.next = currentOfListOne;
-        lastElement = lastElement.next;
-        return currentOfListOne.next
+        lastElement = lastElement.next!;
+        return currentOfListOne && currentOfListOne.next
 
     }
 
     const moveSecondList = (currentOfListTwo: ListNode<number> | null):  ListNode<number> | null =>{
         lastElement.next = currentOfListTwo;
-        lastElement = lastElement.next;
-        return currentOfListTwo.next
+        lastElement = lastElement.next!;
+        return currentOfListTwo && currentOfListTwo.next
     }
 
     while(currentOfListOne && currentOfListTwo) {

@@ -57,7 +57,7 @@ function mergeSort(c: number[]): number[] {
     const sorted = (leftC: number[], rightC: number[]) => {
         const sorted:number[] =  []
         while(leftC.length && rightC.length) {
-            leftC[0] < rightC[0] ? sorted.push(leftC.shift()): sorted.push(rightC.shift());
+            leftC[0] < rightC[0] ? sorted.push(leftC.shift()!): sorted.push(rightC.shift()!);
         }
         return [...sorted, ...leftC, ...rightC];
     }

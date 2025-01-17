@@ -1,4 +1,5 @@
 import { sumOfCoin as sumOfCoinFinder, sumOfCoinPath as sumOfCoinPathFinder} from './sumOfCoin';
+export { sumOfCoin as sumOfCoinFinder, sumOfCoinPath as sumOfCoinPathFinder} from './sumOfCoin';
 
 
 export const sumOfCoin = () => {

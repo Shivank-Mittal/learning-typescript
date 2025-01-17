@@ -22,7 +22,7 @@ function secondLargestSome(values: number[]) {
 // Rotate the array for n steps
 function rotateArray(values:number[], stepsToRotate: number):number[] {
     while (stepsToRotate) {
-        const removedValue = values.pop(); 
+        const removedValue = values.pop()!; 
         values.unshift(removedValue)
         --stepsToRotate
     }
@@ -44,7 +44,7 @@ function rotateArrayRaw(arrayToRotate:number[], stepsToRotate: number):number[] 
 // Rotate the array for n steps raw code more Optimal
 function rotateArrayOptimal(arrayToRotate:number[], stepsToRotate: number):number[] {
     const arrayLength =  arrayToRotate.length
-    if(stepsToRotate === arrayLength) return;
+    if(stepsToRotate === arrayLength) return [];
     stepsToRotate = stepsToRotate % arrayLength;
     const itemsToSwitch = arrayToRotate.splice(arrayLength - stepsToRotate);
     arrayToRotate.unshift(...itemsToSwitch)

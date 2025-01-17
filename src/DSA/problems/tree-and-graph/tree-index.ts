@@ -7,8 +7,8 @@ import { findIslands as islandFinder, findConnectedIslandsWithObjectInput as con
 
 
 function treeGenerator(num: number[]) {
-    const bt = new BST<number>();
-    bt.addMany(num)
+    const bt = new BST<number>(num[0]);
+    bt.addMany(num.slice(1))
     return bt
 }
 

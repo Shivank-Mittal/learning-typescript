@@ -4,7 +4,7 @@
 
 
 
-export function findPathIn2DArray(row:number, column:number, state = new Map<string, number>()): number {
+export function findPathIn2DArray(row:number, column:number, state = new Map<string, number>()): number | undefined {
     if(row === 0 || column ===0) return 0
     if(row === 1 && column === 1) return 1
 
@@ -13,8 +13,8 @@ export function findPathIn2DArray(row:number, column:number, state = new Map<str
     const visited = state.get(key)
     if(visited) return visited
     
-    const left = findPathIn2DArray(row -1, column, state);
-    const right = findPathIn2DArray(row , column - 1, state);
+    const left = findPathIn2DArray(row -1, column, state)!;
+    const right = findPathIn2DArray(row , column - 1, state)!;
     state.set(key, left + right)
     return state.get(key)
 }

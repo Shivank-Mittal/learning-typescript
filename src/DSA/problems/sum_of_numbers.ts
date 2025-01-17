@@ -22,9 +22,9 @@ export function sumOfNumbersInList(candidates: number[], target: number, path:nu
         path.sort()
         const pathS = path.join(',') 
         store.add(pathS)
-        return 
+        return null
     }
-    if(target === 1 || target < 0) return;
+    if(target === 1 || target < 0) return null;
 
     for (let index = 0; index < candidates.length; index++) {
         const required:number = target - candidates[index];
@@ -58,8 +58,8 @@ export function sumOfNumbersInList(candidates: number[], target: number, path:nu
 // Explanation: The sum of 2 and 4 is 6. Therefore index1 = 1, index2 = 3. We return [1, 3].
 
 
-//Because it is and sorted array we can use two pointer approach;
-export function sumOfTwoNumbers(array: number[], target: number): number[] {
+//Because it is a sorted array we can use two pointer approach;
+export function sumOfTwoNumbers(array: number[], target: number) {
     let low = 0;
     let high = array.length - 1;
     while(low < high) {
@@ -70,5 +70,5 @@ export function sumOfTwoNumbers(array: number[], target: number): number[] {
         if(currentTotal < target) low++;
         if(currentTotal > target) high--;
     }
-
+    return []
 }

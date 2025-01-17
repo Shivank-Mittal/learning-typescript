@@ -1,7 +1,7 @@
 export async function execute(functionToCalled: Function, withClick: 'OnClick' | undefined = undefined) {
     console.log(`Executing Registered`)
     if(withClick === 'OnClick') {
-        document.getElementById('execute').addEventListener('click', async () => functionRunner(functionToCalled));
+        document.getElementById('execute')!.addEventListener('click', async () => functionRunner(functionToCalled));
         return;
     }
     functionRunner(functionToCalled);
@@ -32,7 +32,7 @@ function updateView(timeTakenToComplete: number, result: unknown, functionName =
 
     anchorElement.after(newElement)
 
-    document.getElementById('time_taken').innerText = `${timeTakenToComplete?.toPrecision(1)} milliseconds`;
+    document.getElementById('time_taken')!.innerText = `${timeTakenToComplete?.toPrecision(1)} milliseconds`;
 }
 
 
@@ -52,11 +52,11 @@ export function executeWithGenerator(callback: Function, count = 0,  cases: unkn
             }catch(e) {
                 console.log(e)
             }
-            yield updateView(timeTaken ,result, callback.name)
+            yield updateView(timeTaken || 0 ,result, callback.name)
         }
     }
 
     const generator = ex();
-    document.getElementById('execute').addEventListener('click',() => generator.next());
+    document.getElementById('execute')!.addEventListener('click',() => generator.next());
 } 
 

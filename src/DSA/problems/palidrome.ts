@@ -21,10 +21,11 @@ function isPalindromeLearned(value: number) {
     return value < 0 ? false: value === +value.toString().split("").reverse().join("")
 }
 
-function isLinkedListPalindrome(linkedList: LinkedList<number>) {
+function isLinkedListPalindrome(linkedList: LinkedList<number>): boolean {
     const linkedListString = linkedList.toString();
-    const reversedLinkedList = linkedList.reverse().toString()
-    return linkedListString === reversedLinkedList
+    const reversedLinkedList = linkedList.reverse();
+    if(!reversedLinkedList) return false;
+    return linkedListString === reversedLinkedList.toString();
 }
 
 export {

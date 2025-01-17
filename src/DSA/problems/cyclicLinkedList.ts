@@ -18,11 +18,11 @@ function isLinkedListIsCyclic(ls: LinkListNode<number>) {
 function isLinkedListIsCyclicTH(head: LinkListNode<number>): boolean {
     let fast = head.next
     let slow = head
-
+    if(!fast || !fast.next || !slow || !slow.next) return false;
     while(fast.next && fast.next.next) {
         if(fast === slow) return true;
         fast = fast.next.next
-        slow = slow.next
+        slow = slow.next!
     }
     return false
 }

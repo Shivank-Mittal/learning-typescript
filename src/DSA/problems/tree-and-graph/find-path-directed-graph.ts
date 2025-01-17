@@ -50,22 +50,23 @@ export function findPathWithEdges(n: number, edges: number[][], source: number, 
         if(!graph.has(dest))
         graph.set(dest, []);
         
-        graph.get(src).push(dest);
-        graph.get(dest).push(src);
+        graph.get(src)!.push(dest);
+        graph.get(dest)!.push(src);
     }
         
     function searchBFS(): boolean{
         if(!queue.length) return false;
-        const node = queue.shift();
+        const node = queue.shift()!;
         if(node === destination) return true;
    
-        const neighbours = graph.get(node)
-        
-        neighbours.forEach(neighbour => {
-            if(visited.has(neighbour)) return;
-            visited.add(neighbour)
-            queue.push(neighbour)
-        });
+        const neighbors = graph.get(node)
+        if(neighbors) {
+            neighbors.forEach(neighbour => {
+                if(visited.has(neighbour)) return;
+                visited.add(neighbour)
+                queue.push(neighbour)
+            });
+        }
 
         return searchBFS()
     }

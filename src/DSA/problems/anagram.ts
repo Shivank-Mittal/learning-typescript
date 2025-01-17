@@ -27,7 +27,7 @@ function groupAnagram(strs: string[]){
     strs.forEach(str => {
         const sortedStr = str.split('').sort().join('')
        if(anagramMap.has(sortedStr)) {
-        anagramMap.get(sortedStr).push(str)
+        anagramMap.get(sortedStr)!.push(str)
        }else {
         anagramMap.set(sortedStr,[str])
        }

@@ -39,8 +39,7 @@ export function sumOfCoin(coins: number[], amount: number, diary: {[key: number]
 const paths: number[][]= [] 
  export function sumOfCoinPath(coins: number[], amount: number, diary: {[key: number]:number[]} = {}): number []{
     if(diary[amount]) return diary[amount]
-    if(amount === 0) return []; 
-    if (amount < 0) return;
+    if(amount <= 0) return []; 
 
     for (let index = 0; index < coins.length; index++) {
         const coin = coins[index];
@@ -53,5 +52,5 @@ const paths: number[][]= []
         }
         
     }
-    return
+    return []
  }

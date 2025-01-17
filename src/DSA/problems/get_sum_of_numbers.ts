@@ -8,7 +8,7 @@ function getSumOfNumbers(numbArray:number[], target: number): number[] {
         const toFind = target - value;
         const isValuePresent = mem.get(toFind)
 
-        if(isValuePresent) return [mem.get(toFind), index]
+        if(isValuePresent) return [mem.get(toFind)!, index]
         mem.set(value, index) ;
         return search(numbArray[index + 1], index + 1)
         

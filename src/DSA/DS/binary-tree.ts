@@ -29,14 +29,14 @@ export class BinaryTree<T> extends Tree<T> {
     * @return Returns the binary tree with specific value If not found, it returns undefined.
     */
 
-    find(value: T): BinaryTree<T> {
-        if(this.value === value ) return this;
-        let node = undefined;
-        this.breathFirstSearch((nodeValue: T) => {
-            if(nodeValue === value) node = nodeValue
-        }, 'value' )
-        return node
-    }
+    // find(value: T): BinaryTree<T> {
+    //     if(this.value === value ) return this;
+    //     let node = undefined;
+    //     this.breathFirstSearch((nodeValue: T) => {
+    //         if(nodeValue === value) node = nodeValue
+    //     }, 'value' )
+    //     return node
+    // }
 
     print(value: T){
         this.breathFirstSearch((nodeValue: T) => console.log(value), 'value' )
@@ -52,7 +52,7 @@ export class BinaryTree<T> extends Tree<T> {
         queue.enqueue(this);
 
         while(queue.size) {
-            const currentNode = queue.dequeue();
+            const currentNode = queue.dequeue()!;
             const pram = type === 'value' ? currentNode.value : currentNode;
             callback(pram)
             for (let index = 0; index < this.children.length; index++) {
