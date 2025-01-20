@@ -1,6 +1,11 @@
 import LinkedList from './linked-list'
 import BinarySearchTree from './binary-search-tree'
 import { QueueWithArray, QueueWithObject} from './queue' 
+import { DepthFirstSearch} from '../Behaviour/search/depth-first-search'
+import { BreathFirstSearch} from '../Behaviour/search/breath-for-search'
+import { Tree } from './node'
+import { TreeDirector, TreeBuilder } from '../../utilities/tree_genrator'
+import { BinaryTree } from './binary-tree'
 
 
 const linkedListDemo = () => executeWithGenerator(() => {
@@ -27,7 +32,7 @@ const linkedListDemo = () => executeWithGenerator(() => {
 
 
 const binarySearchTree = () => executeWithGenerator(() => {
-    const bst = new BinarySearchTree(10);
+    const bst = new BinarySearchTree(10, new BreathFirstSearch());
     console.log(bst.isEmpty)
 
     bst.addMany([5, 15, 3, 7])
@@ -72,9 +77,48 @@ const queue = () => executeWithGenerator(() => {
 
 
 
+const treeWithSearching = () => executeWithGenerator(() => {
+    debugger
+    const treeBuilder =  new TreeBuilder([1, 4, 8, 3, 9, 0, 2, 6, 12, 27, 16], new BreathFirstSearch())
+    treeBuilder.level(3)
+    const treeDirector = new TreeDirector(treeBuilder);
+    const tree = treeDirector.tree
+    tree?.search(12);
+    
+}, 5)
+
+
+const BinaryTreeWithSearching = () => executeWithGenerator(() => {
+    debugger
+    const treeBuilder = new TreeBuilder([1, 4, 8, 3, 9, 0, 2, 6, 12, 27, 16], new BreathFirstSearch())
+    treeBuilder.level(3)
+    treeBuilder.isBinary(true);
+    const treeDirector = new TreeDirector(treeBuilder);
+    const tree = treeDirector.binaryTree?.search(12) as BinaryTree<number>;
+
+    tree.printInOrder(tree);
+    
+}, 5)
+
+const BinarySearchTreeWithSearching = () => executeWithGenerator(() => {
+    debugger
+    const treeBuilder = new TreeBuilder([1, 4, 8, 3, 9, 0, 2, 6, 12, 27, 16], new DepthFirstSearch())
+    treeBuilder.level(3)
+    treeBuilder.isBinary(true);
+    const treeDirector = new TreeDirector(treeBuilder);
+    const tree = treeDirector.binarySearchTree?.search(12) as BinaryTree<number>;
+
+    tree.printInOrder(tree);
+    
+}, 5)
+
+
 
 export {
     linkedListDemo,
     binarySearchTree,
-    queue
+    queue, 
+    treeWithSearching,
+    BinaryTreeWithSearching,
+    BinarySearchTreeWithSearching
 }

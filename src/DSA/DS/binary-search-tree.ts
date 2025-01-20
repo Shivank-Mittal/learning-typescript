@@ -1,15 +1,18 @@
+import { ISearchTree } from '../Behaviour/search/tree-search';
 import { BinaryTree}  from './binary-tree'
 import { QueueWithObject as Queue}  from './queue'
 
 export default class BinarySearchTree<T> {
     private _rootNode: BinaryTree<T>;
+    private searchBehavior: ISearchTree<T>
 
     get root(){
         return this._rootNode;
     }
 
-    constructor( value: T) {
-        this._rootNode = new BinaryTree(value);;
+    constructor( value: T, searchBehavior: ISearchTree<T>) {
+        this._rootNode = new BinaryTree(value, searchBehavior);
+        this.searchBehavior = searchBehavior;
     }
 
     addMany(values: T[]) {
@@ -17,7 +20,7 @@ export default class BinarySearchTree<T> {
     }
 
     add(value: T) {
-        const newNode = new BinaryTree(value);
+        const newNode = new BinaryTree(value, this.searchBehavior);
         if(this.isEmpty) {
             this._rootNode = newNode;
             return;
@@ -112,9 +115,9 @@ export class BinarySearchTreeModified<T> extends BinaryTree<T> {
         return this._rootNode;
     }
 
-    constructor( value: T) {
-        super(value);
-        this._rootNode = new BinaryTree(value);;
+    constructor( value: T, searchBehavior: ISearchTree<T> ) {
+        super(value, searchBehavior);
+        this._rootNode = new BinaryTree(value, searchBehavior);;
     }
 
     addMany(values: T[]) {
@@ -122,7 +125,7 @@ export class BinarySearchTreeModified<T> extends BinaryTree<T> {
     }
 
     add(value: T) {
-        const newNode = new BinaryTree(value);
+        const newNode = new BinaryTree(value, this.searchBehavior);
         if(this.isEmpty) {
             this._rootNode = newNode;
             return;
@@ -134,30 +137,6 @@ export class BinarySearchTreeModified<T> extends BinaryTree<T> {
     contains(value:T):boolean {
         if(this.isEmpty) return false
         return this.searchNode(this._rootNode, value);
-    }
-
-    printPreOrder(root: BinaryTree<T> ) {
-        if(root) {
-            console.log(root.value)
-            this.printPreOrder(root.left)
-            this.printPreOrder(root.right)
-        }
-    }
-
-    printInOrder(root: BinaryTree<T>) {
-        if(root) {
-            this.printInOrder(root.left);
-            console.log(root.value);
-            this.printInOrder(root.right)
-        }
-    }
-
-    printPostOrder(root: BinaryTree<T>) {
-        if(root) {
-            this.printPostOrder(root.left);
-            this.printPostOrder(root.right);
-            console.log(root.value)
-        }
     }
 
     levelOrder() {

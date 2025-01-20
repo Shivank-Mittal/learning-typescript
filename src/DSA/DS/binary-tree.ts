@@ -1,11 +1,12 @@
+import { ISearchTree } from '../Behaviour/search/tree-search';
 import { Tree } from './node';
 import { QueueWithArray as Queue} from './queue'
 
 export class BinaryTree<T> extends Tree<T> {
     declare children: BinaryTree<T>[];
 
-    constructor(value:T) {
-        super(value);
+    constructor(value:T, searchBehavior: ISearchTree<T>) {
+        super(value, searchBehavior);
         this.children = []
     }
 
@@ -38,27 +39,31 @@ export class BinaryTree<T> extends Tree<T> {
     //     return node
     // }
 
-    print(value: T){
-        this.breathFirstSearch((nodeValue: T) => console.log(value), 'value' )
+    print() {
+       this.printInOrder(this)
     }
 
-    /** This function do a breath first search and execute callback function on each node.
-     * @param callback: Takes a callback function which is called on each node. This call back can take value or node depend on type pram
-     * @param type: specify which type of parameter will be passed to the callback function. Option are node value or node. Default is value
-    */
-    private breathFirstSearch(
-        callback: Function, type: 'value' | 'node' = 'value') {
-        const queue: Queue<BinaryTree<T>> = new Queue();
-        queue.enqueue(this);
+    printPreOrder(root: BinaryTree<T> ) {
+        if(root) {
+            console.log(root.value)
+            this.printPreOrder(root.left)
+            this.printPreOrder(root.right)
+        }
+    }
 
-        while(queue.size) {
-            const currentNode = queue.dequeue()!;
-            const pram = type === 'value' ? currentNode.value : currentNode;
-            callback(pram)
-            for (let index = 0; index < this.children.length; index++) {
-                const node = this.children[index];
-                queue.enqueue(node);
-            }
+    printInOrder(root: BinaryTree<T>) {
+        if(root) {
+            this.printInOrder(root.left);
+            console.log(root.value);
+            this.printInOrder(root.right)
+        }
+    }
+
+    printPostOrder(root: BinaryTree<T>) {
+        if(root) {
+            this.printPostOrder(root.left);
+            this.printPostOrder(root.right);
+            console.log(root.value)
         }
     }
 

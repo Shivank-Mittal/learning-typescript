@@ -26,16 +26,17 @@ export function findIslands(graph: number[][]): number {
     const visited = new Set();
     let islandCount = 0;
 
-    function dfs(rowI = 0, columnI = 0, diary: {[key:string]: boolean} = {}) {
+    function dfs(rowI = 0, columnI = 0, diary: {[key:string]: boolean} = {}): boolean {
         if(rowI < 0 || columnI < 0 || !graph[rowI] || !graph[rowI][columnI] ) return false;
         const cell = graph[rowI][columnI];
-        if (cell === 0) return false
-        if(visited.has(`${rowI}-${columnI}`)) return  visited.has(`${rowI}-${columnI}`);
-        visited.add(`${rowI}-${columnI}`)
-        dfs(rowI, columnI+ 1, diary)
-        dfs(rowI, columnI - 1, diary)
-        dfs(rowI -1, columnI, diary)
-        dfs(rowI + 1, columnI, diary)
+        if (cell === 0) return false;
+        if(visited.has(`${rowI}-${columnI}`)) return true;
+        visited.add(`${rowI}-${columnI}`);
+        dfs(rowI, columnI + 1, diary);
+        dfs(rowI, columnI - 1, diary);
+        dfs(rowI - 1, columnI, diary);
+        dfs(rowI + 1, columnI, diary);
+        return true;
     }
 
 

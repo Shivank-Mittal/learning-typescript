@@ -52,7 +52,6 @@ export function binarySearchSortAgnostic(input: number[], target:number) {
 export function trinarySearch(input: number[], target:number) {
     let stepsTakenToFindTheTarge = 0;
     
-
     function findValue( input: number[]) {
         if(input.length <= 1) {
             return

@@ -1,7 +1,8 @@
 import './style.css';
 import './global';
-import * as DSA from './DSA/index'
+import {treeWithSearching, BinarySearchTreeWithSearching} from './DSA/DS/index'
 
+console.log("tese")
 // provider.dsa.problems.productOfSumExceptSelf()
 
 
@@ -18,4 +19,4 @@ import * as DSA from './DSA/index'
 // execute(() => provider.algo.binarySearch(arrayToProvide, 500000), 'OnClick')S
 // problems.map.validPrantheses();
 
-// practice();
+BinarySearchTreeWithSearching();

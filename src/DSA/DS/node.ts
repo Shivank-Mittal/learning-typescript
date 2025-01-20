@@ -1,3 +1,5 @@
+import {  ISearchTree} from '../Behaviour/search/tree-search'
+
 export class LinkListNode<T> {
     value: T;
     next: LinkListNode<T> | null;
@@ -12,12 +14,19 @@ export class LinkListNode<T> {
     }
 }
 
-export class Tree<T> {
+export class Tree<T>{
     value: T;
     children: Tree<T>[] = []
-    constructor(value:T) {
+    protected searchBehavior: ISearchTree<T>; 
+    constructor(value:T, searchBehavior: ISearchTree<T>) {
         this.value = value;
+        this.searchBehavior = searchBehavior;
     }
+
+    search(valueToFind: T): Tree<T> | undefined {
+        return this.searchBehavior.search(valueToFind, this)
+    }
+
 }
 
 

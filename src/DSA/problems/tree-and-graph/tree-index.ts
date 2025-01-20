@@ -4,10 +4,11 @@ import { findPath as pathFinder } from './find-path-directed-graph'
 import { findPathWithEdges as pathWithEdgesFinder } from './find-path-directed-graph'
 import { captureIsland as captureIslandFinder } from './capture-region'
 import { findIslands as islandFinder, findConnectedIslandsWithObjectInput as connectedIslandCountFinder, findBiggestIsland as findBiggestIslandFinder }  from './connected-island'
+import { BreathFirstSearch } from '../../Behaviour/search/breath-for-search';
 
 
 function treeGenerator(num: number[]) {
-    const bt = new BST<number>(num[0]);
+    const bt = new BST<number>(num[0], new BreathFirstSearch());
     bt.addMany(num.slice(1))
     return bt
 }
